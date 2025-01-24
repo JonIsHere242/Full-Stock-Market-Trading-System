@@ -1030,7 +1030,7 @@ def main():
     timer = time.time()
     cerebro = bt.Cerebro(maxcpus=None)
     cerebro = bt.Cerebro(cheat_on_open=False)
-
+    skipedForBadData = 0
     comminfo = FixedCommissionScheme()
     cerebro.broker.addcommissioninfo(comminfo)
     InitialStartingCash = 5000
@@ -1080,7 +1080,9 @@ def main():
         if max_date == last_trading_date and len(df) >= 252:
             aligned_data.append((name, df))
         else:
-            logging.info(f"Skipping {name} due to insufficient data or not up to last trading date.")
+            skipedForBadData += 1
+
+    logger.info(f"Skipped for bad data: {skipedForBadData}")
 
     if not aligned_data:
         print("No data remains after alignment. Exiting.")

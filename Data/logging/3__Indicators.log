@@ -21818,3 +21818,1062 @@
 2025-01-01 22:10:40,021 - ERROR - Data is not recent. Last date in dataset: 2024-12-31 00:00:00
 2025-01-01 22:10:40,021 - ERROR - Data quality check failed for Data/PriceData\ZYXI.parquet.
 2025-01-01 22:12:39,088 - INFO - Starting the process...
+2025-01-02 20:26:45,887 - INFO - Starting the process...
+2025-01-02 23:49:09,867 - INFO - Starting the process...
+2025-01-02 23:52:50,015 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 6.6, End mean: 0.276
+2025-01-02 23:52:50,015 - ERROR - Data quality check failed for Data/PriceData\CLRB.parquet.
+2025-01-02 23:54:26,501 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-02 23:54:26,501 - ERROR - Data quality check failed for Data/PriceData\ELEV.parquet.
+2025-01-03 22:09:33,252 - INFO - Starting the process...
+2025-01-03 22:23:55,793 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 85.25333333333333, End mean: 4.248666666666667
+2025-01-03 22:23:55,793 - ERROR - Data quality check failed for Data/PriceData\UPXI.parquet.
+2025-01-04 22:09:34,924 - INFO - Starting the process...
+2025-01-05 22:09:38,336 - INFO - Starting the process...
+2025-01-06 22:10:02,399 - INFO - Starting the process...
+2025-01-07 22:09:47,627 - INFO - Starting the process...
+2025-01-09 20:26:38,465 - INFO - Starting the process...
+2025-01-10 20:26:37,874 - INFO - Starting the process...
+2025-01-11 20:26:37,261 - INFO - Starting the process...
+2025-01-11 23:20:25,749 - INFO - Starting the process...
+2025-01-11 23:20:45,436 - INFO - Starting the process...
+2025-01-12 00:23:39,062 - INFO - Starting the process...
+2025-01-12 00:23:41,004 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:23:41,005 - ERROR - Data quality check failed for Data/PriceData\ABTS.parquet.
+2025-01-12 00:23:41,006 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 32.83333333333333, End mean: 0.5689333333333333
+2025-01-12 00:23:41,006 - ERROR - Data quality check failed for Data/PriceData\ABVC.parquet.
+2025-01-12 00:24:18,317 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:18,318 - ERROR - Data quality check failed for Data/PriceData\ACHL.parquet.
+2025-01-12 00:24:24,834 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1901.3333333333333, End mean: 2.175333333333333
+2025-01-12 00:24:24,834 - ERROR - Data quality check failed for Data/PriceData\ADD.parquet.
+2025-01-12 00:24:24,870 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 63.86666666666667, End mean: 1.0506666666666666
+2025-01-12 00:24:24,870 - ERROR - Data quality check failed for Data/PriceData\ADIL.parquet.
+2025-01-12 00:24:24,874 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 168.71999866666664, End mean: 5.172
+2025-01-12 00:24:24,874 - ERROR - Data quality check failed for Data/PriceData\ADN.parquet.
+2025-01-12 00:24:24,961 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 37338.666666666664, End mean: 0.1946
+2025-01-12 00:24:24,961 - ERROR - Data quality check failed for Data/PriceData\ADTX.parquet.
+2025-01-12 00:24:25,311 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 15.113333333333333, End mean: 0.2026666666666667
+2025-01-12 00:24:25,311 - ERROR - Data quality check failed for Data/PriceData\AEHL.parquet.
+2025-01-12 00:24:30,089 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 17.84666666666666, End mean: 0.6819999999999999
+2025-01-12 00:24:30,089 - ERROR - Data quality check failed for Data/PriceData\AEMD.parquet.
+2025-01-12 00:24:30,292 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 46.220000000000006, End mean: 1.254
+2025-01-12 00:24:30,292 - ERROR - Data quality check failed for Data/PriceData\AFMD.parquet.
+2025-01-12 00:24:30,429 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 26206.0, End mean: 31.80046666666667
+2025-01-12 00:24:30,429 - ERROR - Data quality check failed for Data/PriceData\AGFY.parquet.
+2025-01-12 00:24:35,932 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 8992.333333333334, End mean: 2.4933333333333336
+2025-01-12 00:24:35,932 - ERROR - Data quality check failed for Data/PriceData\AGRI.parquet.
+2025-01-12 00:24:36,083 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:36,083 - ERROR - Data quality check failed for Data/PriceData\AHG.parquet.
+2025-01-12 00:24:36,370 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 130.25999933333333, End mean: 2.525333333333333
+2025-01-12 00:24:36,370 - ERROR - Data quality check failed for Data/PriceData\AIFF.parquet.
+2025-01-12 00:24:41,139 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:41,139 - ERROR - Data quality check failed for Data/PriceData\AIHS.parquet.
+2025-01-12 00:24:41,143 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:41,143 - ERROR - Data quality check failed for Data/PriceData\AIM.parquet.
+2025-01-12 00:24:41,147 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 50.37, End mean: 0.5276000000000001
+2025-01-12 00:24:41,147 - ERROR - Data quality check failed for Data/PriceData\AIMD.parquet.
+2025-01-12 00:24:41,422 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:41,422 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 28.945333333333334, End mean: 1.1222
+2025-01-12 00:24:41,422 - ERROR - Data quality check failed for Data/PriceData\AKTX.parquet.
+2025-01-12 00:24:41,422 - ERROR - Data quality check failed for Data/PriceData\AKBA.parquet.
+2025-01-12 00:24:41,440 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 113.52999999999999, End mean: 3.530666666666667
+2025-01-12 00:24:41,440 - ERROR - Data quality check failed for Data/PriceData\ALBT.parquet.
+2025-01-12 00:24:47,756 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 7834848.0, End mean: 1.0536666666666668
+2025-01-12 00:24:47,756 - ERROR - Data quality check failed for Data/PriceData\ALLR.parquet.
+2025-01-12 00:24:54,092 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:54,092 - ERROR - Data quality check failed for Data/PriceData\ALVR.parquet.
+2025-01-12 00:24:54,092 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 243.8, End mean: 8.788333333333334
+2025-01-12 00:24:54,092 - ERROR - Data quality check failed for Data/PriceData\ALUR.parquet.
+2025-01-12 00:24:54,097 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 272.8, End mean: 1.198
+2025-01-12 00:24:54,097 - ERROR - Data quality check failed for Data/PriceData\ALZN.parquet.
+2025-01-12 00:24:54,135 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 213.04666533333327, End mean: 4.028
+2025-01-12 00:24:54,135 - ERROR - Data quality check failed for Data/PriceData\AMC.parquet.
+2025-01-12 00:24:55,225 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:55,225 - ERROR - Data quality check failed for Data/PriceData\AMPGW.parquet.
+2025-01-12 00:24:59,487 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:24:59,487 - ERROR - Data quality check failed for Data/PriceData\AMRN.parquet.
+2025-01-12 00:24:59,508 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 23.396000000000004, End mean: 1.1393999999999997
+2025-01-12 00:24:59,508 - ERROR - Data quality check failed for Data/PriceData\AMTD.parquet.
+2025-01-12 00:25:06,403 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:25:06,404 - ERROR - Data quality check failed for Data/PriceData\APCX.parquet.
+2025-01-12 00:25:06,412 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 81.44, End mean: 0.20466666666666672
+2025-01-12 00:25:06,412 - ERROR - Data quality check failed for Data/PriceData\APDN.parquet.
+2025-01-12 00:25:06,435 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 993.6, End mean: 10.150599999999999
+2025-01-12 00:25:06,435 - ERROR - Data quality check failed for Data/PriceData\APLM.parquet.
+2025-01-12 00:25:06,681 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 50.572666666666684, End mean: 1.8300000000000003
+2025-01-12 00:25:06,681 - ERROR - Data quality check failed for Data/PriceData\APPS.parquet.
+2025-01-12 00:25:12,921 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:25:12,921 - ERROR - Data quality check failed for Data/PriceData\APTO.parquet.
+2025-01-12 00:25:12,927 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 11436.157421999998, End mean: 4.732000000000001
+2025-01-12 00:25:12,927 - ERROR - Data quality check failed for Data/PriceData\APVO.parquet.
+2025-01-12 00:25:12,949 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 38.26666666666667, End mean: 0.6916000000000001
+2025-01-12 00:25:12,949 - ERROR - Data quality check failed for Data/PriceData\AQB.parquet.
+2025-01-12 00:25:13,063 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 479.20178642857144, End mean: 1.922142857142857
+2025-01-12 00:25:13,063 - ERROR - Data quality check failed for Data/PriceData\AREB.parquet.
+2025-01-12 00:25:24,804 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:25:24,804 - ERROR - Data quality check failed for Data/PriceData\ASM.parquet.
+2025-01-12 00:25:24,952 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 592.2439986666667, End mean: 10.098
+2025-01-12 00:25:24,952 - ERROR - Data quality check failed for Data/PriceData\ATCH.parquet.
+2025-01-12 00:25:25,028 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:25:25,028 - ERROR - Data quality check failed for Data/PriceData\ATER.parquet.
+2025-01-12 00:25:26,871 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 11.577333333333332, End mean: 0.5599333333333334
+2025-01-12 00:25:26,871 - ERROR - Data quality check failed for Data/PriceData\ATHA.parquet.
+2025-01-12 00:25:30,708 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1196.6199960000001, End mean: 1.916666666666667
+2025-01-12 00:25:30,708 - ERROR - Data quality check failed for Data/PriceData\ATNF.parquet.
+2025-01-12 00:25:30,733 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:25:30,733 - ERROR - Data quality check failed for Data/PriceData\ATOS.parquet.
+2025-01-12 00:25:30,745 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 382.55, End mean: 13.722000000000001
+2025-01-12 00:25:30,745 - ERROR - Data quality check failed for Data/PriceData\ATRA.parquet.
+2025-01-12 00:25:30,780 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 953.4, End mean: 1.885
+2025-01-12 00:25:30,780 - ERROR - Data quality check failed for Data/PriceData\ATXI.parquet.
+2025-01-12 00:25:34,182 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 44.49166666666667, End mean: 0.5167333333333334
+2025-01-12 00:25:34,182 - ERROR - Data quality check failed for Data/PriceData\AUUD.parquet.
+2025-01-12 00:25:35,710 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 116.91999999999999, End mean: 0.7977333333333332
+2025-01-12 00:25:35,710 - ERROR - Data quality check failed for Data/PriceData\AVGR.parquet.
+2025-01-12 00:25:35,826 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3231.167951333334, End mean: 8.277333333333335
+2025-01-12 00:25:35,827 - ERROR - Data quality check failed for Data/PriceData\AVTX.parquet.
+2025-01-12 00:25:35,873 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 21.019999999999996, End mean: 0.7346666666666667
+2025-01-12 00:25:35,873 - ERROR - Data quality check failed for Data/PriceData\AWH.parquet.
+2025-01-12 00:25:35,976 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 42.95333333333334, End mean: 1.1726666666666665
+2025-01-12 00:25:35,976 - ERROR - Data quality check failed for Data/PriceData\AXDX.parquet.
+2025-01-12 00:25:46,797 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 39.01, End mean: 1.2663333333333333
+2025-01-12 00:25:46,797 - ERROR - Data quality check failed for Data/PriceData\BACK.parquet.
+2025-01-12 00:25:48,973 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 835.9200060000003, End mean: 1.0086666666666666
+2025-01-12 00:25:48,973 - ERROR - Data quality check failed for Data/PriceData\BBLG.parquet.
+2025-01-12 00:25:48,976 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:25:48,976 - ERROR - Data quality check failed for Data/PriceData\BBLGW.parquet.
+2025-01-12 00:25:53,051 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 13.915333333333331, End mean: 0.6895333333333333
+2025-01-12 00:25:53,051 - ERROR - Data quality check failed for Data/PriceData\BCAB.parquet.
+2025-01-12 00:25:53,220 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 53.839999999999996, End mean: 2.232
+2025-01-12 00:25:53,220 - ERROR - Data quality check failed for Data/PriceData\BCLI.parquet.
+2025-01-12 00:25:59,799 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 45970.666666666664, End mean: 4.219266666666667
+2025-01-12 00:25:59,799 - ERROR - Data quality check failed for Data/PriceData\BDRX.parquet.
+2025-01-12 00:25:59,943 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 789.4666599999999, End mean: 0.7142
+2025-01-12 00:25:59,943 - ERROR - Data quality check failed for Data/PriceData\BENF.parquet.
+2025-01-12 00:25:59,992 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 495.10333266666663, End mean: 9.749333333333333
+2025-01-12 00:25:59,992 - ERROR - Data quality check failed for Data/PriceData\BETR.parquet.
+2025-01-12 00:26:01,504 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 102.41333266666668, End mean: 1.0747333333333333
+2025-01-12 00:26:01,504 - ERROR - Data quality check failed for Data/PriceData\BFRI.parquet.
+2025-01-12 00:26:06,134 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:26:06,134 - ERROR - Data quality check failed for Data/PriceData\BGLC.parquet.
+2025-01-12 00:26:06,206 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:26:06,206 - ERROR - Data quality check failed for Data/PriceData\BHAT.parquet.
+2025-01-12 00:26:06,370 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 184.96332999999998, End mean: 2.285333333333333
+2025-01-12 00:26:06,371 - ERROR - Data quality check failed for Data/PriceData\BHIL.parquet.
+2025-01-12 00:26:11,722 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:26:11,722 - ERROR - Data quality check failed for Data/PriceData\BHST.parquet.
+2025-01-12 00:26:11,896 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 280.2133293333333, End mean: 7.086666666666668
+2025-01-12 00:26:11,896 - ERROR - Data quality check failed for Data/PriceData\BIRD.parquet.
+2025-01-12 00:26:11,967 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 20554.666666666668, End mean: 3.947333333333333
+2025-01-12 00:26:11,967 - ERROR - Data quality check failed for Data/PriceData\BJDX.parquet.
+2025-01-12 00:26:12,029 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 46.78999999999999, End mean: 2.164
+2025-01-12 00:26:12,029 - ERROR - Data quality check failed for Data/PriceData\BIVI.parquet.
+2025-01-12 00:26:17,518 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 39.912000000000006, End mean: 1.366666666666667
+2025-01-12 00:26:17,518 - ERROR - Data quality check failed for Data/PriceData\BKYI.parquet.
+2025-01-12 00:26:17,697 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:26:17,697 - ERROR - Data quality check failed for Data/PriceData\BLRX.parquet.
+2025-01-12 00:26:17,701 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 176.84, End mean: 8.605333333333334
+2025-01-12 00:26:17,701 - ERROR - Data quality check failed for Data/PriceData\BLUE.parquet.
+2025-01-12 00:26:23,760 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:26:23,760 - ERROR - Data quality check failed for Data/PriceData\BMRA.parquet.
+2025-01-12 00:26:23,854 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 640.4, End mean: 10.257333333333332
+2025-01-12 00:26:23,855 - ERROR - Data quality check failed for Data/PriceData\BNED.parquet.
+2025-01-12 00:26:23,855 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 26.09333333333333, End mean: 0.24066666666666667
+2025-01-12 00:26:23,855 - ERROR - Data quality check failed for Data/PriceData\BNGO.parquet.
+2025-01-12 00:26:23,912 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 488.2566673333333, End mean: 1.6346666666666665
+2025-01-12 00:26:23,912 - ERROR - Data quality check failed for Data/PriceData\BNZI.parquet.
+2025-01-12 00:26:24,016 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 36.758, End mean: 1.6566000000000003
+2025-01-12 00:26:24,016 - ERROR - Data quality check failed for Data/PriceData\BON.parquet.
+2025-01-12 00:26:24,085 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2966.3333333333335, End mean: 53.16933333333334
+2025-01-12 00:26:24,085 - ERROR - Data quality check failed for Data/PriceData\BOIL.parquet.
+2025-01-12 00:26:30,025 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 77.67999999999999, End mean: 1.1193333333333335
+2025-01-12 00:26:30,025 - ERROR - Data quality check failed for Data/PriceData\BPTH.parquet.
+2025-01-12 00:26:30,115 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 472359.6666666667, End mean: 678703.4
+2025-01-12 00:26:30,115 - ERROR - Data quality check failed for Data/PriceData\BRK-A.parquet.
+2025-01-12 00:26:36,170 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9.706666666666669, End mean: 0.3995333333333333
+2025-01-12 00:26:36,171 - ERROR - Data quality check failed for Data/PriceData\BSLK.parquet.
+2025-01-12 00:26:36,226 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 19.413999999999998, End mean: 0.3885333333333333
+2025-01-12 00:26:36,226 - ERROR - Data quality check failed for Data/PriceData\BTAI.parquet.
+2025-01-12 00:26:41,584 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 35.839999999999996, End mean: 0.9252
+2025-01-12 00:26:41,584 - ERROR - Data quality check failed for Data/PriceData\BTOG.parquet.
+2025-01-12 00:26:41,590 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 115.06399933333334, End mean: 2.2346666666666666
+2025-01-12 00:26:41,590 - ERROR - Data quality check failed for Data/PriceData\BTTR.parquet.
+2025-01-12 00:26:41,687 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:26:41,687 - ERROR - Data quality check failed for Data/PriceData\BURU.parquet.
+2025-01-12 00:26:52,874 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 143.45599733333333, End mean: 4.975066666666666
+2025-01-12 00:26:52,874 - ERROR - Data quality check failed for Data/PriceData\CARA.parquet.
+2025-01-12 00:26:52,946 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 15.722666666666667, End mean: 0.45646666666666663
+2025-01-12 00:26:52,946 - ERROR - Data quality check failed for Data/PriceData\CARM.parquet.
+2025-01-12 00:26:57,548 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 105.66666666666667, End mean: 2.7593333333333336
+2025-01-12 00:26:57,548 - ERROR - Data quality check failed for Data/PriceData\CBUS.parquet.
+2025-01-12 00:27:08,510 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 342.6666666666667, End mean: 1.1426666666666667
+2025-01-12 00:27:08,511 - ERROR - Data quality check failed for Data/PriceData\CENN.parquet.
+2025-01-12 00:27:08,642 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 992.4, End mean: 5.384
+2025-01-12 00:27:08,643 - ERROR - Data quality check failed for Data/PriceData\CERO.parquet.
+2025-01-12 00:27:08,652 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 61637.1, End mean: 3.0860000000000003
+2025-01-12 00:27:08,652 - ERROR - Data quality check failed for Data/PriceData\CETX.parquet.
+2025-01-12 00:27:08,964 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 83.08666666666666, End mean: 2.7913333333333337
+2025-01-12 00:27:08,964 - ERROR - Data quality check failed for Data/PriceData\CGC.parquet.
+2025-01-12 00:27:21,208 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 606.1600033333335, End mean: 4.691333333333334
+2025-01-12 00:27:21,209 - ERROR - Data quality check failed for Data/PriceData\CING.parquet.
+2025-01-12 00:27:21,231 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 63.11000000000001, End mean: 2.198
+2025-01-12 00:27:21,231 - ERROR - Data quality check failed for Data/PriceData\CISO.parquet.
+2025-01-12 00:27:22,053 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 294.94199533333335, End mean: 2.177
+2025-01-12 00:27:22,053 - ERROR - Data quality check failed for Data/PriceData\CJET.parquet.
+2025-01-12 00:27:22,056 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 88.0, End mean: 1.8553333333333333
+2025-01-12 00:27:22,056 - ERROR - Data quality check failed for Data/PriceData\CJJD.parquet.
+2025-01-12 00:27:26,880 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 98.20266666666667, End mean: 1.313
+2025-01-12 00:27:26,881 - ERROR - Data quality check failed for Data/PriceData\CLDI.parquet.
+2025-01-12 00:27:26,984 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:26,984 - ERROR - Data quality check failed for Data/PriceData\CLIR.parquet.
+2025-01-12 00:27:27,094 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 6.6, End mean: 0.2946666666666667
+2025-01-12 00:27:27,094 - ERROR - Data quality check failed for Data/PriceData\CLRB.parquet.
+2025-01-12 00:27:27,103 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:27,103 - ERROR - Data quality check failed for Data/PriceData\CLRO.parquet.
+2025-01-12 00:27:32,943 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 23.318, End mean: 0.8239333333333332
+2025-01-12 00:27:32,943 - ERROR - Data quality check failed for Data/PriceData\CMBM.parquet.
+2025-01-12 00:27:38,329 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 70.35999999999999, End mean: 0.3253333333333333
+2025-01-12 00:27:38,329 - ERROR - Data quality check failed for Data/PriceData\CNEY.parquet.
+2025-01-12 00:27:38,650 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1130.9, End mean: 0.11420000000000001
+2025-01-12 00:27:38,650 - ERROR - Data quality check failed for Data/PriceData\CNSP.parquet.
+2025-01-12 00:27:45,114 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 200.15466733333335, End mean: 4.755333333333334
+2025-01-12 00:27:45,114 - ERROR - Data quality check failed for Data/PriceData\COEP.parquet.
+2025-01-12 00:27:50,419 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:50,419 - ERROR - Data quality check failed for Data/PriceData\COSM.parquet.
+2025-01-12 00:27:50,519 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:50,519 - ERROR - Data quality check failed for Data/PriceData\CPHI.parquet.
+2025-01-12 00:27:50,625 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:50,625 - ERROR - Data quality check failed for Data/PriceData\CPOP.parquet.
+2025-01-12 00:27:52,057 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 139.6985007142857, End mean: 3.217321428571428
+2025-01-12 00:27:52,057 - ERROR - Data quality check failed for Data/PriceData\CPTN.parquet.
+2025-01-12 00:27:57,939 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:57,939 - ERROR - Data quality check failed for Data/PriceData\CRDL.parquet.
+2025-01-12 00:27:58,282 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:27:58,282 - ERROR - Data quality check failed for Data/PriceData\CRIS.parquet.
+2025-01-12 00:27:58,305 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 28119.6, End mean: 0.13513333333333336
+2025-01-12 00:27:58,305 - ERROR - Data quality check failed for Data/PriceData\CRKN.parquet.
+2025-01-12 00:28:04,587 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9.650599999999999, End mean: 0.3691333333333333
+2025-01-12 00:28:04,587 - ERROR - Data quality check failed for Data/PriceData\CTCX.parquet.
+2025-01-12 00:28:10,750 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 36.63133333333333, End mean: 0.404
+2025-01-12 00:28:10,751 - ERROR - Data quality check failed for Data/PriceData\CUTR.parquet.
+2025-01-12 00:28:20,726 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 55.089999999999996, End mean: 0.372
+2025-01-12 00:28:20,726 - ERROR - Data quality check failed for Data/PriceData\CYCC.parquet.
+2025-01-12 00:28:20,742 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 357.3333333333333, End mean: 0.8085333333333334
+2025-01-12 00:28:20,742 - ERROR - Data quality check failed for Data/PriceData\CYN.parquet.
+2025-01-12 00:28:20,764 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:28:20,764 - ERROR - Data quality check failed for Data/PriceData\CYTHW.parquet.
+2025-01-12 00:28:20,919 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:28:20,919 - ERROR - Data quality check failed for Data/PriceData\DATSW.parquet.
+2025-01-12 00:28:29,470 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 89.86800000000001, End mean: 3.2019999999999995
+2025-01-12 00:28:29,470 - ERROR - Data quality check failed for Data/PriceData\DFLI.parquet.
+2025-01-12 00:28:29,567 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 21.453333333333333, End mean: 0.504
+2025-01-12 00:28:29,567 - ERROR - Data quality check failed for Data/PriceData\DGLY.parquet.
+2025-01-12 00:28:42,583 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 253.22666933333332, End mean: 10.071999999999997
+2025-01-12 00:28:42,583 - ERROR - Data quality check failed for Data/PriceData\DNA.parquet.
+2025-01-12 00:28:48,506 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 387.3600006666666, End mean: 1.2777333333333334
+2025-01-12 00:28:48,506 - ERROR - Data quality check failed for Data/PriceData\DRMA.parquet.
+2025-01-12 00:28:48,680 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 180.50000133333336, End mean: 4.600999999999999
+2025-01-12 00:28:48,680 - ERROR - Data quality check failed for Data/PriceData\DTIL.parquet.
+2025-01-12 00:28:49,590 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:28:49,590 - ERROR - Data quality check failed for Data/PriceData\DUO.parquet.
+2025-01-12 00:28:53,632 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 151.28333333333333, End mean: 2.5686666666666667
+2025-01-12 00:28:53,632 - ERROR - Data quality check failed for Data/PriceData\DWTX.parquet.
+2025-01-12 00:28:53,700 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 31.786666666666665, End mean: 0.8055333333333333
+2025-01-12 00:28:53,700 - ERROR - Data quality check failed for Data/PriceData\EAST.parquet.
+2025-01-12 00:28:57,523 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 36.25533333333333, End mean: 1.8033333333333337
+2025-01-12 00:28:57,523 - ERROR - Data quality check failed for Data/PriceData\EDSA.parquet.
+2025-01-12 00:29:01,372 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 173264.0, End mean: 0.25253333333333333
+2025-01-12 00:29:01,372 - ERROR - Data quality check failed for Data/PriceData\EFSH.parquet.
+2025-01-12 00:29:01,468 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 117140.0, End mean: 0.7450666666666665
+2025-01-12 00:29:01,468 - ERROR - Data quality check failed for Data/PriceData\EJH.parquet.
+2025-01-12 00:29:06,129 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:29:06,129 - ERROR - Data quality check failed for Data/PriceData\ELEV.parquet.
+2025-01-12 00:29:06,176 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:29:06,176 - ERROR - Data quality check failed for Data/PriceData\EM.parquet.
+2025-01-12 00:29:06,201 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 63.446666666666665, End mean: 3.0073333333333325
+2025-01-12 00:29:06,202 - ERROR - Data quality check failed for Data/PriceData\EMKR.parquet.
+2025-01-12 00:29:11,439 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 12583.2, End mean: 8.332666666666666
+2025-01-12 00:29:11,439 - ERROR - Data quality check failed for Data/PriceData\ENSC.parquet.
+2025-01-12 00:29:11,457 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 5975.2, End mean: 0.6232
+2025-01-12 00:29:11,457 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:29:11,457 - ERROR - Data quality check failed for Data/PriceData\ENTO.parquet.
+2025-01-12 00:29:11,457 - ERROR - Data quality check failed for Data/PriceData\ENTX.parquet.
+2025-01-12 00:29:11,459 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 39.79666666666666, End mean: 0.36533333333333334
+2025-01-12 00:29:11,459 - ERROR - Data quality check failed for Data/PriceData\ENVB.parquet.
+2025-01-12 00:29:11,499 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:29:11,499 - ERROR - Data quality check failed for Data/PriceData\EOSEW.parquet.
+2025-01-12 00:29:15,665 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:29:15,666 - ERROR - Data quality check failed for Data/PriceData\EQ.parquet.
+2025-01-12 00:29:15,730 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 70.66666666666667, End mean: 0.2906666666666667
+2025-01-12 00:29:15,730 - ERROR - Data quality check failed for Data/PriceData\ERNA.parquet.
+2025-01-12 00:29:19,461 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 41.566666666666656, End mean: 0.9127426666666666
+2025-01-12 00:29:19,462 - ERROR - Data quality check failed for Data/PriceData\EVAX.parquet.
+2025-01-12 00:29:22,575 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:29:22,575 - ERROR - Data quality check failed for Data/PriceData\EVGOW.parquet.
+2025-01-12 00:29:29,643 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3.543333333333334, End mean: 0.10726666666666669
+2025-01-12 00:29:29,643 - ERROR - Data quality check failed for Data/PriceData\EYEN.parquet.
+2025-01-12 00:29:29,647 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 52.133333333333326, End mean: 0.7202000000000001
+2025-01-12 00:29:29,647 - ERROR - Data quality check failed for Data/PriceData\EZGO.parquet.
+2025-01-12 00:29:29,791 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 46.53333333333333, End mean: 0.30866666666666664
+2025-01-12 00:29:29,791 - ERROR - Data quality check failed for Data/PriceData\FAMI.parquet.
+2025-01-12 00:29:29,845 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 45.86999999999999, End mean: 1.6800000000000002
+2025-01-12 00:29:29,845 - ERROR - Data quality check failed for Data/PriceData\FATE.parquet.
+2025-01-12 00:29:41,709 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 50956.8, End mean: 1.9613333333333332
+2025-01-12 00:29:41,710 - ERROR - Data quality check failed for Data/PriceData\FFIE.parquet.
+2025-01-12 00:29:41,744 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 13.936666666666667, End mean: 0.5286666666666666
+2025-01-12 00:29:41,745 - ERROR - Data quality check failed for Data/PriceData\FGEN.parquet.
+2025-01-12 00:29:48,190 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 34.51333333333333, End mean: 1.0473333333333332
+2025-01-12 00:29:48,190 - ERROR - Data quality check failed for Data/PriceData\FLGC.parquet.
+2025-01-12 00:29:53,656 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 431.35333199999997, End mean: 13.062
+2025-01-12 00:29:53,656 - ERROR - Data quality check failed for Data/PriceData\FNGD.parquet.
+2025-01-12 00:29:59,600 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 13839.941277333332, End mean: 1.886
+2025-01-12 00:29:59,600 - ERROR - Data quality check failed for Data/PriceData\FRGT.parquet.
+2025-01-12 00:30:05,252 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:05,252 - ERROR - Data quality check failed for Data/PriceData\FTFT.parquet.
+2025-01-12 00:30:11,563 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:11,563 - ERROR - Data quality check failed for Data/PriceData\FURY.parquet.
+2025-01-12 00:30:17,434 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:17,434 - ERROR - Data quality check failed for Data/PriceData\GATEW.parquet.
+2025-01-12 00:30:17,448 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:17,448 - ERROR - Data quality check failed for Data/PriceData\GAU.parquet.
+2025-01-12 00:30:22,938 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 20.996333333333336, End mean: 0.24426666666666672
+2025-01-12 00:30:22,938 - ERROR - Data quality check failed for Data/PriceData\GCTK.parquet.
+2025-01-12 00:30:29,087 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 46.53333333333333, End mean: 1.6893333333333334
+2025-01-12 00:30:29,088 - ERROR - Data quality check failed for Data/PriceData\GFAI.parquet.
+2025-01-12 00:30:35,310 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:35,310 - ERROR - Data quality check failed for Data/PriceData\GLDG.parquet.
+2025-01-12 00:30:41,540 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:41,540 - ERROR - Data quality check failed for Data/PriceData\GLYC.parquet.
+2025-01-12 00:30:41,710 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1958.000000666667, End mean: 1.588
+2025-01-12 00:30:41,710 - ERROR - Data quality check failed for Data/PriceData\GNLN.parquet.
+2025-01-12 00:30:41,714 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 92.85333333333331, End mean: 0.8658666666666667
+2025-01-12 00:30:41,714 - ERROR - Data quality check failed for Data/PriceData\GNPX.parquet.
+2025-01-12 00:30:47,515 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3109.906673333333, End mean: 1.5166666666666664
+2025-01-12 00:30:47,515 - ERROR - Data quality check failed for Data/PriceData\GOEV.parquet.
+2025-01-12 00:30:47,571 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:47,572 - ERROR - Data quality check failed for Data/PriceData\GORO.parquet.
+2025-01-12 00:30:47,577 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 18.706, End mean: 0.8705333333333333
+2025-01-12 00:30:47,577 - ERROR - Data quality check failed for Data/PriceData\GORV.parquet.
+2025-01-12 00:30:47,581 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:47,581 - ERROR - Data quality check failed for Data/PriceData\GOSS.parquet.
+2025-01-12 00:30:47,711 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 208760.60937466664, End mean: 5.208
+2025-01-12 00:30:47,711 - ERROR - Data quality check failed for Data/PriceData\GPUS.parquet.
+2025-01-12 00:30:47,754 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:47,754 - ERROR - Data quality check failed for Data/PriceData\GRABW.parquet.
+2025-01-12 00:30:50,912 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 150.95333200000002, End mean: 1.7486666666666664
+2025-01-12 00:30:50,912 - ERROR - Data quality check failed for Data/PriceData\GREE.parquet.
+2025-01-12 00:30:53,149 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:30:53,149 - ERROR - Data quality check failed for Data/PriceData\GRFX.parquet.
+2025-01-12 00:30:53,153 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 17910.620182000002, End mean: 0.7922666666666667
+2025-01-12 00:30:53,153 - ERROR - Data quality check failed for Data/PriceData\GRI.parquet.
+2025-01-12 00:30:53,285 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 49.422, End mean: 1.4360000000000002
+2025-01-12 00:30:53,285 - ERROR - Data quality check failed for Data/PriceData\GROV.parquet.
+2025-01-12 00:30:53,288 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 660.2666666666667, End mean: 0.42093333333333327
+2025-01-12 00:30:53,288 - ERROR - Data quality check failed for Data/PriceData\GRYP.parquet.
+2025-01-12 00:30:53,907 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 88.18000000000002, End mean: 2.7289999999999996
+2025-01-12 00:30:53,908 - ERROR - Data quality check failed for Data/PriceData\GTBP.parquet.
+2025-01-12 00:30:59,605 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1878.0, End mean: 0.6713333333333332
+2025-01-12 00:30:59,607 - ERROR - Data quality check failed for Data/PriceData\GWAV.parquet.
+2025-01-12 00:30:59,610 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 131.53, End mean: 5.605333333333333
+2025-01-12 00:30:59,610 - ERROR - Data quality check failed for Data/PriceData\GWH.parquet.
+2025-01-12 00:31:05,940 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 23.08, End mean: 0.5263333333333333
+2025-01-12 00:31:05,940 - ERROR - Data quality check failed for Data/PriceData\HEPA.parquet.
+2025-01-12 00:31:17,023 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 32.970666666666666, End mean: 1.140666666666667
+2025-01-12 00:31:17,023 - ERROR - Data quality check failed for Data/PriceData\HOFV.parquet.
+2025-01-12 00:31:17,023 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 21.681666666666665, End mean: 1.0312000000000001
+2025-01-12 00:31:17,023 - ERROR - Data quality check failed for Data/PriceData\HOTH.parquet.
+2025-01-12 00:31:17,056 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1996.2133299999998, End mean: 2.8973333333333335
+2025-01-12 00:31:17,056 - ERROR - Data quality check failed for Data/PriceData\HOLO.parquet.
+2025-01-12 00:31:22,350 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 6.6033333333333335, End mean: 0.3216666666666666
+2025-01-12 00:31:22,350 - ERROR - Data quality check failed for Data/PriceData\HPH.parquet.
+2025-01-12 00:31:22,633 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 250.56666666666666, End mean: 0.7283333333333334
+2025-01-12 00:31:22,635 - ERROR - Data quality check failed for Data/PriceData\HSDT.parquet.
+2025-01-12 00:31:22,973 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:22,973 - ERROR - Data quality check failed for Data/PriceData\HTCO.parquet.
+2025-01-12 00:31:22,977 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:22,977 - ERROR - Data quality check failed for Data/PriceData\HTCR.parquet.
+2025-01-12 00:31:28,463 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:28,464 - ERROR - Data quality check failed for Data/PriceData\HTOOW.parquet.
+2025-01-12 00:31:28,556 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 99.02666666666667, End mean: 0.6409999999999999
+2025-01-12 00:31:28,557 - ERROR - Data quality check failed for Data/PriceData\HUBC.parquet.
+2025-01-12 00:31:28,652 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 833.2333333333333, End mean: 4.314000000000001
+2025-01-12 00:31:28,652 - ERROR - Data quality check failed for Data/PriceData\HURA.parquet.
+2025-01-12 00:31:34,520 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:34,520 - ERROR - Data quality check failed for Data/PriceData\HYFM.parquet.
+2025-01-12 00:31:34,618 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:34,618 - ERROR - Data quality check failed for Data/PriceData\HYMCL.parquet.
+2025-01-12 00:31:34,657 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 284.15, End mean: 1.1723333333333334
+2025-01-12 00:31:34,657 - ERROR - Data quality check failed for Data/PriceData\HYZN.parquet.
+2025-01-12 00:31:34,734 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 254.33333333333334, End mean: 2.472
+2025-01-12 00:31:34,734 - ERROR - Data quality check failed for Data/PriceData\IBIO.parquet.
+2025-01-12 00:31:40,801 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 250.38333333333333, End mean: 2.023333333333333
+2025-01-12 00:31:40,801 - ERROR - Data quality check failed for Data/PriceData\ICU.parquet.
+2025-01-12 00:31:41,032 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3914.6666666666665, End mean: 2.343066666666666
+2025-01-12 00:31:41,032 - ERROR - Data quality check failed for Data/PriceData\IFBD.parquet.
+2025-01-12 00:31:41,068 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:41,068 - ERROR - Data quality check failed for Data/PriceData\IGC.parquet.
+2025-01-12 00:31:47,047 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:47,047 - ERROR - Data quality check failed for Data/PriceData\IINNW.parquet.
+2025-01-12 00:31:47,168 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 37.15933333333333, End mean: 0.9491333333333334
+2025-01-12 00:31:47,168 - ERROR - Data quality check failed for Data/PriceData\IMAB.parquet.
+2025-01-12 00:31:47,187 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 113.28333266666667, End mean: 0.7125999999999999
+2025-01-12 00:31:47,187 - ERROR - Data quality check failed for Data/PriceData\IMG.parquet.
+2025-01-12 00:31:47,292 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 168.23999799999996, End mean: 2.3432666666666666
+2025-01-12 00:31:47,293 - ERROR - Data quality check failed for Data/PriceData\IMCC.parquet.
+2025-01-12 00:31:52,396 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 76.18, End mean: 1.2644
+2025-01-12 00:31:52,396 - ERROR - Data quality check failed for Data/PriceData\IMTE.parquet.
+2025-01-12 00:31:52,561 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 367.67999733333335, End mean: 1.3800000000000001
+2025-01-12 00:31:52,561 - ERROR - Data quality check failed for Data/PriceData\INBS.parquet.
+2025-01-12 00:31:52,859 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 635.6666666666666, End mean: 4.615933333333333
+2025-01-12 00:31:52,859 - ERROR - Data quality check failed for Data/PriceData\INM.parquet.
+2025-01-12 00:31:52,912 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 54.72, End mean: 1.8993333333333335
+2025-01-12 00:31:52,912 - ERROR - Data quality check failed for Data/PriceData\INO.parquet.
+2025-01-12 00:31:58,979 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 72.89333333333335, End mean: 2.1346666666666665
+2025-01-12 00:31:58,980 - ERROR - Data quality check failed for Data/PriceData\INTZ.parquet.
+2025-01-12 00:31:58,983 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:31:58,983 - ERROR - Data quality check failed for Data/PriceData\INUV.parquet.
+2025-01-12 00:32:04,645 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:04,646 - ERROR - Data quality check failed for Data/PriceData\IPW.parquet.
+2025-01-12 00:32:04,969 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 202.61733, End mean: 3.817333333333333
+2025-01-12 00:32:04,969 - ERROR - Data quality check failed for Data/PriceData\ISPO.parquet.
+2025-01-12 00:32:04,969 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 132.29333466666668, End mean: 2.915
+2025-01-12 00:32:04,969 - ERROR - Data quality check failed for Data/PriceData\ISPC.parquet.
+2025-01-12 00:32:04,986 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:04,986 - ERROR - Data quality check failed for Data/PriceData\ISPOW.parquet.
+2025-01-12 00:32:05,153 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:05,153 - ERROR - Data quality check failed for Data/PriceData\ITP.parquet.
+2025-01-12 00:32:05,156 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:05,156 - ERROR - Data quality check failed for Data/PriceData\ITRG.parquet.
+2025-01-12 00:32:10,847 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 130.64533333333333, End mean: 4.3886666666666665
+2025-01-12 00:32:10,847 - ERROR - Data quality check failed for Data/PriceData\IVDA.parquet.
+2025-01-12 00:32:10,973 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 4206.0, End mean: 1.0384
+2025-01-12 00:32:10,973 - ERROR - Data quality check failed for Data/PriceData\JAGX.parquet.
+2025-01-12 00:32:16,173 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:16,173 - ERROR - Data quality check failed for Data/PriceData\JOB.parquet.
+2025-01-12 00:32:22,643 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2230.2, End mean: 4.469333333333334
+2025-01-12 00:32:22,643 - ERROR - Data quality check failed for Data/PriceData\JTAI.parquet.
+2025-01-12 00:32:22,646 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 78.18666666666667, End mean: 2.8471333333333333
+2025-01-12 00:32:22,646 - ERROR - Data quality check failed for Data/PriceData\JWEL.parquet.
+2025-01-12 00:32:22,750 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 331.1880053333333, End mean: 1.4735333333333334
+2025-01-12 00:32:22,750 - ERROR - Data quality check failed for Data/PriceData\JZXN.parquet.
+2025-01-12 00:32:29,202 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 357.9408026666667, End mean: 2.1915999999999998
+2025-01-12 00:32:29,202 - ERROR - Data quality check failed for Data/PriceData\KITT.parquet.
+2025-01-12 00:32:34,899 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:34,899 - ERROR - Data quality check failed for Data/PriceData\KNW.parquet.
+2025-01-12 00:32:35,054 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 331.77599999999995, End mean: 3.458933333333334
+2025-01-12 00:32:35,054 - ERROR - Data quality check failed for Data/PriceData\KPRX.parquet.
+2025-01-12 00:32:40,647 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 486.10714285714283, End mean: 13.520714285714286
+2025-01-12 00:32:40,647 - ERROR - Data quality check failed for Data/PriceData\KSCP.parquet.
+2025-01-12 00:32:40,650 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:40,650 - ERROR - Data quality check failed for Data/PriceData\KUKE.parquet.
+2025-01-12 00:32:40,650 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:40,650 - ERROR - Data quality check failed for Data/PriceData\KULR.parquet.
+2025-01-12 00:32:40,701 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 588.1866693333334, End mean: 0.6830666666666666
+2025-01-12 00:32:40,701 - ERROR - Data quality check failed for Data/PriceData\KWE.parquet.
+2025-01-12 00:32:40,704 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 977.4, End mean: 1.6226666666666667
+2025-01-12 00:32:40,705 - ERROR - Data quality check failed for Data/PriceData\KXIN.parquet.
+2025-01-12 00:32:40,789 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 78.72666666666667, End mean: 2.4073333333333333
+2025-01-12 00:32:40,789 - ERROR - Data quality check failed for Data/PriceData\KZIA.parquet.
+2025-01-12 00:32:40,942 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 137.72666733333332, End mean: 6.615333333333334
+2025-01-12 00:32:40,942 - ERROR - Data quality check failed for Data/PriceData\KZR.parquet.
+2025-01-12 00:32:46,653 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 230.64000066666668, End mean: 6.2793333333333345
+2025-01-12 00:32:46,653 - ERROR - Data quality check failed for Data/PriceData\LAZR.parquet.
+2025-01-12 00:32:53,136 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 197.7733333333334, End mean: 1.5828666666666669
+2025-01-12 00:32:53,136 - ERROR - Data quality check failed for Data/PriceData\LFLY.parquet.
+2025-01-12 00:32:53,318 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 62.1, End mean: 0.18506666666666666
+2025-01-12 00:32:53,318 - ERROR - Data quality check failed for Data/PriceData\LGHL.parquet.
+2025-01-12 00:32:58,740 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1629.6666666666667, End mean: 1.5813333333333333
+2025-01-12 00:32:58,740 - ERROR - Data quality check failed for Data/PriceData\LGMK.parquet.
+2025-01-12 00:32:58,823 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 92.23333333333333, End mean: 1.7806666666666662
+2025-01-12 00:32:58,823 - ERROR - Data quality check failed for Data/PriceData\LGVN.parquet.
+2025-01-12 00:32:58,844 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 70.864, End mean: 1.8653333333333333
+2025-01-12 00:32:58,844 - ERROR - Data quality check failed for Data/PriceData\LICY.parquet.
+2025-01-12 00:32:58,847 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 118.70000133333332, End mean: 1.6646
+2025-01-12 00:32:58,848 - ERROR - Data quality check failed for Data/PriceData\LIDR.parquet.
+2025-01-12 00:32:58,848 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:58,848 - ERROR - Data quality check failed for Data/PriceData\LIDRW.parquet.
+2025-01-12 00:32:59,066 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 45.77066666666666, End mean: 1.822
+2025-01-12 00:32:59,066 - ERROR - Data quality check failed for Data/PriceData\LIQT.parquet.
+2025-01-12 00:32:59,110 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:59,111 - ERROR - Data quality check failed for Data/PriceData\LITM.parquet.
+2025-01-12 00:32:59,227 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:32:59,227 - ERROR - Data quality check failed for Data/PriceData\LIXTW.parquet.
+2025-01-12 00:32:59,243 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 143.50400199999999, End mean: 1.914866666666667
+2025-01-12 00:32:59,243 - ERROR - Data quality check failed for Data/PriceData\LKCO.parquet.
+2025-01-12 00:33:05,183 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 71.48266666666667, End mean: 2.0833333333333335
+2025-01-12 00:33:05,183 - ERROR - Data quality check failed for Data/PriceData\LOCL.parquet.
+2025-01-12 00:33:05,188 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:05,188 - ERROR - Data quality check failed for Data/PriceData\LODE.parquet.
+2025-01-12 00:33:05,296 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 32.547999999999995, End mean: 1.1973333333333334
+2025-01-12 00:33:05,296 - ERROR - Data quality check failed for Data/PriceData\LPSN.parquet.
+2025-01-12 00:33:10,401 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 96.94000000000001, End mean: 3.213133333333333
+2025-01-12 00:33:10,401 - ERROR - Data quality check failed for Data/PriceData\LSB.parquet.
+2025-01-12 00:33:10,687 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:10,687 - ERROR - Data quality check failed for Data/PriceData\LVO.parquet.
+2025-01-12 00:33:15,735 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 169.99333333333337, End mean: 5.223000000000001
+2025-01-12 00:33:15,735 - ERROR - Data quality check failed for Data/PriceData\LXEH.parquet.
+2025-01-12 00:33:15,895 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 4.106, End mean: 0.19493333333333335
+2025-01-12 00:33:15,895 - ERROR - Data quality check failed for Data/PriceData\LYRA.parquet.
+2025-01-12 00:33:16,044 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:16,044 - ERROR - Data quality check failed for Data/PriceData\MAPS.parquet.
+2025-01-12 00:33:21,565 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:21,565 - ERROR - Data quality check failed for Data/PriceData\MATH.parquet.
+2025-01-12 00:33:21,610 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1247.0666666666666, End mean: 7.648666666666666
+2025-01-12 00:33:21,610 - ERROR - Data quality check failed for Data/PriceData\MAXN.parquet.
+2025-01-12 00:33:21,669 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 22.750000000000004, End mean: 0.19300000000000003
+2025-01-12 00:33:21,670 - ERROR - Data quality check failed for Data/PriceData\MBIO.parquet.
+2025-01-12 00:33:21,697 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:21,697 - ERROR - Data quality check failed for Data/PriceData\MBRX.parquet.
+2025-01-12 00:33:27,316 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 112.45333266666665, End mean: 3.4606666666666666
+2025-01-12 00:33:27,317 - ERROR - Data quality check failed for Data/PriceData\ME.parquet.
+2025-01-12 00:33:38,578 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 8.290000000000001, End mean: 0.3410714285714286
+2025-01-12 00:33:38,578 - ERROR - Data quality check failed for Data/PriceData\MHUA.parquet.
+2025-01-12 00:33:38,582 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 171.8, End mean: 4.5998
+2025-01-12 00:33:38,582 - ERROR - Data quality check failed for Data/PriceData\MI.parquet.
+2025-01-12 00:33:38,636 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 160.33333333333334, End mean: 7.472666666666666
+2025-01-12 00:33:38,636 - ERROR - Data quality check failed for Data/PriceData\MIND.parquet.
+2025-01-12 00:33:38,639 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 31.192, End mean: 0.9413333333333334
+2025-01-12 00:33:38,639 - ERROR - Data quality check failed for Data/PriceData\MIGI.parquet.
+2025-01-12 00:33:38,664 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:38,664 - ERROR - Data quality check failed for Data/PriceData\MITQ.parquet.
+2025-01-12 00:33:39,765 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2015.1199953333332, End mean: 2.5739999999999994
+2025-01-12 00:33:39,765 - ERROR - Data quality check failed for Data/PriceData\MLGO.parquet.
+2025-01-12 00:33:44,740 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:44,741 - ERROR - Data quality check failed for Data/PriceData\MLSS.parquet.
+2025-01-12 00:33:45,160 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2734.6666666666665, End mean: 8.134666666666668
+2025-01-12 00:33:45,160 - ERROR - Data quality check failed for Data/PriceData\MNTS.parquet.
+2025-01-12 00:33:51,025 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:33:51,025 - ERROR - Data quality check failed for Data/PriceData\MNYWW.parquet.
+2025-01-12 00:33:57,093 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 11.173333333333334, End mean: 0.41140000000000004
+2025-01-12 00:33:57,093 - ERROR - Data quality check failed for Data/PriceData\MRNS.parquet.
+2025-01-12 00:34:02,499 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 39.62333333333333, End mean: 1.278
+2025-01-12 00:34:02,499 - ERROR - Data quality check failed for Data/PriceData\MSGM.parquet.
+2025-01-12 00:34:02,607 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:02,607 - ERROR - Data quality check failed for Data/PriceData\MSN.parquet.
+2025-01-12 00:34:02,608 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 6238.833333333333, End mean: 2.0973333333333333
+2025-01-12 00:34:02,608 - ERROR - Data quality check failed for Data/PriceData\MSPR.parquet.
+2025-01-12 00:34:02,673 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:02,673 - ERROR - Data quality check failed for Data/PriceData\MTC.parquet.
+2025-01-12 00:34:02,692 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 45.87666666666666, End mean: 0.6017333333333332
+2025-01-12 00:34:02,692 - ERROR - Data quality check failed for Data/PriceData\MTNB.parquet.
+2025-01-12 00:34:02,810 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 317.96800066666657, End mean: 1.9526666666666666
+2025-01-12 00:34:02,810 - ERROR - Data quality check failed for Data/PriceData\MTVA.parquet.
+2025-01-12 00:34:08,769 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9787500.0, End mean: 1.0019999999999998
+2025-01-12 00:34:08,770 - ERROR - Data quality check failed for Data/PriceData\MULN.parquet.
+2025-01-12 00:34:14,992 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:14,992 - ERROR - Data quality check failed for Data/PriceData\MYPSW.parquet.
+2025-01-12 00:34:15,126 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 89.49333333333333, End mean: 3.7239999999999998
+2025-01-12 00:34:15,126 - ERROR - Data quality check failed for Data/PriceData\MYSZ.parquet.
+2025-01-12 00:34:15,166 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 50.14666666666666, End mean: 2.037333333333333
+2025-01-12 00:34:15,167 - ERROR - Data quality check failed for Data/PriceData\NAAS.parquet.
+2025-01-12 00:34:15,206 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:15,206 - ERROR - Data quality check failed for Data/PriceData\NAMSW.parquet.
+2025-01-12 00:34:15,211 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:15,211 - ERROR - Data quality check failed for Data/PriceData\NAOV.parquet.
+2025-01-12 00:34:15,243 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:15,243 - ERROR - Data quality check failed for Data/PriceData\NAK.parquet.
+2025-01-12 00:34:15,346 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 431.2, End mean: 0.5873333333333333
+2025-01-12 00:34:15,348 - ERROR - Data quality check failed for Data/PriceData\NBY.parquet.
+2025-01-12 00:34:15,372 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 69.41333333333334, End mean: 0.8237999999999999
+2025-01-12 00:34:15,372 - ERROR - Data quality check failed for Data/PriceData\NAYA.parquet.
+2025-01-12 00:34:15,736 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 65.6, End mean: 1.251
+2025-01-12 00:34:15,736 - ERROR - Data quality check failed for Data/PriceData\NCNA.parquet.
+2025-01-12 00:34:15,787 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 777.4666666666667, End mean: 1.9980000000000002
+2025-01-12 00:34:15,787 - ERROR - Data quality check failed for Data/PriceData\NCPL.parquet.
+2025-01-12 00:34:21,034 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 24290.0, End mean: 5.8974
+2025-01-12 00:34:21,034 - ERROR - Data quality check failed for Data/PriceData\NDRA.parquet.
+2025-01-12 00:34:21,107 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:21,107 - ERROR - Data quality check failed for Data/PriceData\NEGG.parquet.
+2025-01-12 00:34:21,209 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 145.67280066666666, End mean: 3.627066666666667
+2025-01-12 00:34:21,209 - ERROR - Data quality check failed for Data/PriceData\NEUP.parquet.
+2025-01-12 00:34:21,315 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 244.5333346666667, End mean: 6.485333333333333
+2025-01-12 00:34:21,315 - ERROR - Data quality check failed for Data/PriceData\NEUE.parquet.
+2025-01-12 00:34:27,528 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 30.3506, End mean: 0.8255333333333332
+2025-01-12 00:34:27,528 - ERROR - Data quality check failed for Data/PriceData\NITO.parquet.
+2025-01-12 00:34:32,518 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 286.5399986666666, End mean: 1.2539999999999998
+2025-01-12 00:34:32,519 - ERROR - Data quality check failed for Data/PriceData\NKLA.parquet.
+2025-01-12 00:34:32,526 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:32,526 - ERROR - Data quality check failed for Data/PriceData\NKTR.parquet.
+2025-01-12 00:34:32,550 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 46.282666666666664, End mean: 2.1289333333333333
+2025-01-12 00:34:32,550 - ERROR - Data quality check failed for Data/PriceData\NLSP.parquet.
+2025-01-12 00:34:32,555 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:34:32,555 - ERROR - Data quality check failed for Data/PriceData\NLSPW.parquet.
+2025-01-12 00:34:50,043 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3931.6666666666665, End mean: 1.096
+2025-01-12 00:34:50,044 - ERROR - Data quality check failed for Data/PriceData\NUWE.parquet.
+2025-01-12 00:34:50,259 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 86.14066666666666, End mean: 3.7106666666666666
+2025-01-12 00:34:50,259 - ERROR - Data quality check failed for Data/PriceData\NVRO.parquet.
+2025-01-12 00:34:50,260 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 5531.805988666666, End mean: 8112.140038666666
+2025-01-12 00:34:50,260 - ERROR - Data quality check failed for Data/PriceData\NVR.parquet.
+2025-01-12 00:34:50,416 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3914.4, End mean: 3.2068666666666674
+2025-01-12 00:34:50,416 - ERROR - Data quality check failed for Data/PriceData\NVVE.parquet.
+2025-01-12 00:35:01,353 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 517.2, End mean: 3.7613333333333334
+2025-01-12 00:35:01,353 - ERROR - Data quality check failed for Data/PriceData\OBLG.parquet.
+2025-01-12 00:35:01,422 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 25.56, End mean: 1.2300666666666666
+2025-01-12 00:35:01,422 - ERROR - Data quality check failed for Data/PriceData\OCG.parquet.
+2025-01-12 00:35:01,423 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:35:01,423 - ERROR - Data quality check failed for Data/PriceData\OCGN.parquet.
+2025-01-12 00:35:05,840 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 29.52, End mean: 0.37466666666666665
+2025-01-12 00:35:05,840 - ERROR - Data quality check failed for Data/PriceData\OGEN.parquet.
+2025-01-12 00:35:06,129 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 39.90133333333334, End mean: 1.141133333333333
+2025-01-12 00:35:06,129 - ERROR - Data quality check failed for Data/PriceData\OM.parquet.
+2025-01-12 00:35:12,092 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2262.614292857143, End mean: 0.5015
+2025-01-12 00:35:12,092 - ERROR - Data quality check failed for Data/PriceData\ONCO.parquet.
+2025-01-12 00:35:12,098 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:35:12,098 - ERROR - Data quality check failed for Data/PriceData\ONDS.parquet.
+2025-01-12 00:35:12,196 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3410.266666666667, End mean: 1.1843333333333335
+2025-01-12 00:35:12,196 - ERROR - Data quality check failed for Data/PriceData\OP.parquet.
+2025-01-12 00:35:12,197 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 74.22, End mean: 3.0393333333333334
+2025-01-12 00:35:12,197 - ERROR - Data quality check failed for Data/PriceData\OPAD.parquet.
+2025-01-12 00:35:12,299 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 26.86, End mean: 0.998
+2025-01-12 00:35:12,299 - ERROR - Data quality check failed for Data/PriceData\OPI.parquet.
+2025-01-12 00:35:18,373 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:35:18,373 - ERROR - Data quality check failed for Data/PriceData\OPTT.parquet.
+2025-01-12 00:35:24,300 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 405.480002, End mean: 1.6626666666666667
+2025-01-12 00:35:24,300 - ERROR - Data quality check failed for Data/PriceData\OTRK.parquet.
+2025-01-12 00:35:30,268 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 975.0, End mean: 1.847333333333333
+2025-01-12 00:35:30,268 - ERROR - Data quality check failed for Data/PriceData\PALI.parquet.
+2025-01-12 00:35:30,354 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:35:30,354 - ERROR - Data quality check failed for Data/PriceData\PASG.parquet.
+2025-01-12 00:35:30,364 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 29.479999999999997, End mean: 0.6339333333333333
+2025-01-12 00:35:30,364 - ERROR - Data quality check failed for Data/PriceData\PAVM.parquet.
+2025-01-12 00:35:34,615 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 743.5, End mean: 2.156
+2025-01-12 00:35:34,615 - ERROR - Data quality check failed for Data/PriceData\PBM.parquet.
+2025-01-12 00:35:35,027 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 91.16000000000001, End mean: 0.9064
+2025-01-12 00:35:35,027 - ERROR - Data quality check failed for Data/PriceData\PCSA.parquet.
+2025-01-12 00:35:35,078 - ERROR - Error processing Data/PriceData\PCG-PE.parquet: float division by zero
+2025-01-12 00:35:35,082 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 1322, in process_file
+    df = indicators(df)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 1082, in indicators
+    df = imminent_channel_breakout(df)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 776, in imminent_channel_breakout
+    df['Breakout_Score'] = df.apply(calculate_breakout_score, axis=1)
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\frame.py", line 10374, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 916, in apply
+    return self.apply_standard()
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 1063, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 1081, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 769, in calculate_breakout_score
+    lower_proximity = 100 * (1 - min(row['Lower_Band'] / row['Close'], 1))
+ZeroDivisionError: float division by zero
+
+2025-01-12 00:35:35,096 - ERROR - Error processing Data/PriceData\PCG-PB.parquet: float division by zero
+2025-01-12 00:35:35,237 - ERROR - Error processing Data/PriceData\PCG-PH.parquet: float division by zero
+2025-01-12 00:35:35,362 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 1322, in process_file
+    df = indicators(df)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 1082, in indicators
+    df = imminent_channel_breakout(df)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 776, in imminent_channel_breakout
+    df['Breakout_Score'] = df.apply(calculate_breakout_score, axis=1)
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\frame.py", line 10374, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 916, in apply
+    return self.apply_standard()
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 1063, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 1081, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 769, in calculate_breakout_score
+    lower_proximity = 100 * (1 - min(row['Lower_Band'] / row['Close'], 1))
+ZeroDivisionError: float division by zero
+
+2025-01-12 00:35:35,486 - ERROR - Traceback (most recent call last):
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 1322, in process_file
+    df = indicators(df)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 1082, in indicators
+    df = imminent_channel_breakout(df)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 776, in imminent_channel_breakout
+    df['Breakout_Score'] = df.apply(calculate_breakout_score, axis=1)
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\frame.py", line 10374, in apply
+    return op.apply().__finalize__(self, method="apply")
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 916, in apply
+    return self.apply_standard()
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 1063, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "C:\Users\Masam\miniconda3\envs\tf\lib\site-packages\pandas\core\apply.py", line 1081, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+  File "C:\Users\Masam\Desktop\Stock-Market-LSTM\3__Indicators.py", line 769, in calculate_breakout_score
+    lower_proximity = 100 * (1 - min(row['Lower_Band'] / row['Close'], 1))
+ZeroDivisionError: float division by zero
+
+2025-01-12 00:35:41,612 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:35:41,612 - ERROR - Data quality check failed for Data/PriceData\PED.parquet.
+2025-01-12 00:35:41,867 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9.770999999999997, End mean: 0.2501333333333333
+2025-01-12 00:35:41,867 - ERROR - Data quality check failed for Data/PriceData\PET.parquet.
+2025-01-12 00:35:42,021 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 34.14666666666666, End mean: 1.2056666666666664
+2025-01-12 00:35:42,021 - ERROR - Data quality check failed for Data/PriceData\PETZ.parquet.
+2025-01-12 00:35:47,341 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 15.843333333333334, End mean: 0.6885333333333334
+2025-01-12 00:35:47,341 - ERROR - Data quality check failed for Data/PriceData\PHGE.parquet.
+2025-01-12 00:35:47,528 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 102.1464, End mean: 1.9373333333333334
+2025-01-12 00:35:47,528 - ERROR - Data quality check failed for Data/PriceData\PHIO.parquet.
+2025-01-12 00:35:52,313 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 139.1, End mean: 5.048666666666667
+2025-01-12 00:35:52,313 - ERROR - Data quality check failed for Data/PriceData\PHUN.parquet.
+2025-01-12 00:35:52,331 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 5.4813333333333345, End mean: 0.2147333333333333
+2025-01-12 00:35:52,331 - ERROR - Data quality check failed for Data/PriceData\PIII.parquet.
+2025-01-12 00:36:09,455 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 115.17054400000002, End mean: 5.645466666666666
+2025-01-12 00:36:09,455 - ERROR - Data quality check failed for Data/PriceData\PRE.parquet.
+2025-01-12 00:36:15,426 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 142.15999933333333, End mean: 1.1260000000000001
+2025-01-12 00:36:15,426 - ERROR - Data quality check failed for Data/PriceData\PRSO.parquet.
+2025-01-12 00:36:15,474 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 209.77333333333334, End mean: 5.368666666666667
+2025-01-12 00:36:15,474 - ERROR - Data quality check failed for Data/PriceData\PRTG.parquet.
+2025-01-12 00:36:21,143 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 50.96, End mean: 1.812666666666667
+2025-01-12 00:36:21,143 - ERROR - Data quality check failed for Data/PriceData\PSHG.parquet.
+2025-01-12 00:36:21,507 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 24.88, End mean: 0.3582666666666667
+2025-01-12 00:36:21,507 - ERROR - Data quality check failed for Data/PriceData\PTPI.parquet.
+2025-01-12 00:36:27,155 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 280.05333533333334, End mean: 12.698333333333332
+2025-01-12 00:36:27,155 - ERROR - Data quality check failed for Data/PriceData\PVLA.parquet.
+2025-01-12 00:36:27,159 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 72.08999999999999, End mean: 1.288666666666667
+2025-01-12 00:36:27,159 - ERROR - Data quality check failed for Data/PriceData\PW.parquet.
+2025-01-12 00:36:27,315 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:36:27,315 - ERROR - Data quality check failed for Data/PriceData\PZG.parquet.
+2025-01-12 00:36:27,342 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 168.21999933333333, End mean: 3.1001333333333334
+2025-01-12 00:36:27,342 - ERROR - Data quality check failed for Data/PriceData\PYPD.parquet.
+2025-01-12 00:36:27,419 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 99.62666666666665, End mean: 1.453
+2025-01-12 00:36:27,420 - ERROR - Data quality check failed for Data/PriceData\QH.parquet.
+2025-01-12 00:36:27,439 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 516.3, End mean: 4.1934000000000005
+2025-01-12 00:36:27,439 - ERROR - Data quality check failed for Data/PriceData\QLGN.parquet.
+2025-01-12 00:36:27,482 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 254.1, End mean: 0.6126
+2025-01-12 00:36:27,482 - ERROR - Data quality check failed for Data/PriceData\QNRX.parquet.
+2025-01-12 00:36:33,239 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:36:33,240 - ERROR - Data quality check failed for Data/PriceData\QRTEA.parquet.
+2025-01-12 00:36:33,415 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9.898, End mean: 0.42480000000000007
+2025-01-12 00:36:33,415 - ERROR - Data quality check failed for Data/PriceData\QTI.parquet.
+2025-01-12 00:36:33,695 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 31.04533333333333, End mean: 1.4674000000000003
+2025-01-12 00:36:33,695 - ERROR - Data quality check failed for Data/PriceData\RAPT.parquet.
+2025-01-12 00:36:39,551 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2564.6666666666665, End mean: 6.481800000000001
+2025-01-12 00:36:39,552 - ERROR - Data quality check failed for Data/PriceData\RDHL.parquet.
+2025-01-12 00:36:44,549 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1953.8100173333335, End mean: 2.349333333333333
+2025-01-12 00:36:44,549 - ERROR - Data quality check failed for Data/PriceData\RELI.parquet.
+2025-01-12 00:36:44,651 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 7587.3, End mean: 0.45199999999999996
+2025-01-12 00:36:44,651 - ERROR - Data quality check failed for Data/PriceData\REVB.parquet.
+2025-01-12 00:36:44,747 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1557.6666666666667, End mean: 0.9049333333333334
+2025-01-12 00:36:44,747 - ERROR - Data quality check failed for Data/PriceData\RETO.parquet.
+2025-01-12 00:36:50,053 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 80.73599999999998, End mean: 2.54704
+2025-01-12 00:36:50,054 - ERROR - Data quality check failed for Data/PriceData\RGF.parquet.
+2025-01-12 00:36:51,136 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 6.3199999999999985, End mean: 0.11133333333333333
+2025-01-12 00:36:51,136 - ERROR - Data quality check failed for Data/PriceData\RIME.parquet.
+2025-01-12 00:36:56,135 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 20.269999999999992, End mean: 0.4155333333333333
+2025-01-12 00:36:56,135 - ERROR - Data quality check failed for Data/PriceData\RLMD.parquet.
+2025-01-12 00:37:02,197 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 64592.0, End mean: 3.62
+2025-01-12 00:37:02,197 - ERROR - Data quality check failed for Data/PriceData\RNAZ.parquet.
+2025-01-12 00:37:02,281 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:02,282 - ERROR - Data quality check failed for Data/PriceData\RNWWW.parquet.
+2025-01-12 00:37:02,620 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:02,620 - ERROR - Data quality check failed for Data/PriceData\RPID.parquet.
+2025-01-12 00:37:07,133 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 4516.266666666666, End mean: 4.559333333333334
+2025-01-12 00:37:07,133 - ERROR - Data quality check failed for Data/PriceData\RSLS.parquet.
+2025-01-12 00:37:07,529 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 42.77333333333333, End mean: 1.390666666666667
+2025-01-12 00:37:07,529 - ERROR - Data quality check failed for Data/PriceData\RVYL.parquet.
+2025-01-12 00:37:19,926 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 20.819999999999997, End mean: 0.6966666666666667
+2025-01-12 00:37:19,926 - ERROR - Data quality check failed for Data/PriceData\SBET.parquet.
+2025-01-12 00:37:19,930 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:19,930 - ERROR - Data quality check failed for Data/PriceData\SBEV.parquet.
+2025-01-12 00:37:19,946 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3835.714285714286, End mean: 3.025
+2025-01-12 00:37:19,946 - ERROR - Data quality check failed for Data/PriceData\SBFM.parquet.
+2025-01-12 00:37:25,334 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 10.075333333333333, End mean: 0.44526666666666675
+2025-01-12 00:37:25,334 - ERROR - Data quality check failed for Data/PriceData\SCLX.parquet.
+2025-01-12 00:37:25,342 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 179.8, End mean: 3.4532666666666665
+2025-01-12 00:37:25,342 - ERROR - Data quality check failed for Data/PriceData\SCNI.parquet.
+2025-01-12 00:37:25,423 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:25,423 - ERROR - Data quality check failed for Data/PriceData\SCPX.parquet.
+2025-01-12 00:37:25,650 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 119.19333333333334, End mean: 3.987
+2025-01-12 00:37:25,650 - ERROR - Data quality check failed for Data/PriceData\SDIG.parquet.
+2025-01-12 00:37:31,174 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:31,174 - ERROR - Data quality check failed for Data/PriceData\SEATW.parquet.
+2025-01-12 00:37:31,178 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3888.457324, End mean: 2444.181982
+2025-01-12 00:37:31,179 - ERROR - Data quality check failed for Data/PriceData\SEB.parquet.
+2025-01-12 00:37:31,279 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:31,279 - ERROR - Data quality check failed for Data/PriceData\SENS.parquet.
+2025-01-12 00:37:31,512 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 18.940458, End mean: 0.49779999999999996
+2025-01-12 00:37:31,512 - ERROR - Data quality check failed for Data/PriceData\SGBX.parquet.
+2025-01-12 00:37:36,346 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 45.806666666666665, End mean: 1.7766666666666668
+2025-01-12 00:37:36,346 - ERROR - Data quality check failed for Data/PriceData\SGLY.parquet.
+2025-01-12 00:37:36,373 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:36,373 - ERROR - Data quality check failed for Data/PriceData\SGMO.parquet.
+2025-01-12 00:37:36,443 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:36,444 - ERROR - Data quality check failed for Data/PriceData\SHFS.parquet.
+2025-01-12 00:37:36,544 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:36,545 - ERROR - Data quality check failed for Data/PriceData\SHOT.parquet.
+2025-01-12 00:37:36,595 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 977.5333333333333, End mean: 4.012
+2025-01-12 00:37:36,595 - ERROR - Data quality check failed for Data/PriceData\SIDU.parquet.
+2025-01-12 00:37:41,966 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 12129.333333333334, End mean: 3.690666666666667
+2025-01-12 00:37:41,966 - ERROR - Data quality check failed for Data/PriceData\SINT.parquet.
+2025-01-12 00:37:41,973 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 997.7599946666667, End mean: 2.445666666666667
+2025-01-12 00:37:41,973 - ERROR - Data quality check failed for Data/PriceData\SISI.parquet.
+2025-01-12 00:37:42,062 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 120.14666666666666, End mean: 5.050666666666667
+2025-01-12 00:37:42,062 - ERROR - Data quality check failed for Data/PriceData\SKLZ.parquet.
+2025-01-12 00:37:42,386 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 44.16, End mean: 0.6506000000000001
+2025-01-12 00:37:42,387 - ERROR - Data quality check failed for Data/PriceData\SLE.parquet.
+2025-01-12 00:37:47,422 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 251.86666666666667, End mean: 2.279333333333333
+2025-01-12 00:37:47,422 - ERROR - Data quality check failed for Data/PriceData\SLNH.parquet.
+2025-01-12 00:37:47,510 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 98.02666666666666, End mean: 1.6052666666666666
+2025-01-12 00:37:47,510 - ERROR - Data quality check failed for Data/PriceData\SLRX.parquet.
+2025-01-12 00:37:53,071 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 35.04, End mean: 1.35
+2025-01-12 00:37:53,071 - ERROR - Data quality check failed for Data/PriceData\SMSI.parquet.
+2025-01-12 00:37:53,076 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 16313.0, End mean: 0.3888
+2025-01-12 00:37:53,077 - ERROR - Data quality check failed for Data/PriceData\SMX.parquet.
+2025-01-12 00:37:53,101 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 44.79, End mean: 0.6981333333333334
+2025-01-12 00:37:53,102 - ERROR - Data quality check failed for Data/PriceData\SNAX.parquet.
+2025-01-12 00:37:53,197 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2356.9600100000002, End mean: 3.2016666666666667
+2025-01-12 00:37:53,197 - ERROR - Data quality check failed for Data/PriceData\SNES.parquet.
+2025-01-12 00:37:53,303 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 158.08000333333334, End mean: 3.0460000000000003
+2025-01-12 00:37:53,303 - ERROR - Data quality check failed for Data/PriceData\SNGX.parquet.
+2025-01-12 00:37:53,306 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:53,306 - ERROR - Data quality check failed for Data/PriceData\SNSE.parquet.
+2025-01-12 00:37:53,310 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 89.16, End mean: 2.6713333333333336
+2025-01-12 00:37:53,310 - ERROR - Data quality check failed for Data/PriceData\SNOA.parquet.
+2025-01-12 00:37:53,315 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 98.53333333333333, End mean: 4.010666666666666
+2025-01-12 00:37:53,315 - ERROR - Data quality check failed for Data/PriceData\SNTI.parquet.
+2025-01-12 00:37:53,377 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 218.13333333333333, End mean: 3.291533333333333
+2025-01-12 00:37:53,377 - ERROR - Data quality check failed for Data/PriceData\SNPX.parquet.
+2025-01-12 00:37:58,218 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9.86107142857143, End mean: 0.25114285714285717
+2025-01-12 00:37:58,218 - ERROR - Data quality check failed for Data/PriceData\SOAR.parquet.
+2025-01-12 00:37:58,222 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 799.9199993333333, End mean: 1.0667333333333333
+2025-01-12 00:37:58,222 - ERROR - Data quality check failed for Data/PriceData\SOBR.parquet.
+2025-01-12 00:37:58,448 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 914.9653393333333, End mean: 1.5813333333333337
+2025-01-12 00:37:58,448 - ERROR - Data quality check failed for Data/PriceData\SONN.parquet.
+2025-01-12 00:37:58,452 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 112.65999866666668, End mean: 0.9148666666666666
+2025-01-12 00:37:58,452 - ERROR - Data quality check failed for Data/PriceData\SOPA.parquet.
+2025-01-12 00:37:58,477 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 605.05, End mean: 7.02
+2025-01-12 00:37:58,477 - ERROR - Data quality check failed for Data/PriceData\SOS.parquet.
+2025-01-12 00:37:58,481 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 181.47999866666663, End mean: 3.2873333333333337
+2025-01-12 00:37:58,481 - ERROR - Data quality check failed for Data/PriceData\SOND.parquet.
+2025-01-12 00:37:58,721 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 219.41333200000003, End mean: 6.154000000000001
+2025-01-12 00:37:58,721 - ERROR - Data quality check failed for Data/PriceData\SPCE.parquet.
+2025-01-12 00:37:58,837 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:37:58,838 - ERROR - Data quality check failed for Data/PriceData\SPI.parquet.
+2025-01-12 00:38:04,610 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 155.75039933333335, End mean: 0.49853333333333333
+2025-01-12 00:38:04,611 - ERROR - Data quality check failed for Data/PriceData\SPRC.parquet.
+2025-01-12 00:38:04,837 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:04,837 - ERROR - Data quality check failed for Data/PriceData\SQFT.parquet.
+2025-01-12 00:38:10,142 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 91.6, End mean: 2.252666666666667
+2025-01-12 00:38:10,142 - ERROR - Data quality check failed for Data/PriceData\STAF.parquet.
+2025-01-12 00:38:10,143 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:10,143 - ERROR - Data quality check failed for Data/PriceData\SSY.parquet.
+2025-01-12 00:38:14,775 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 15.378666666666666, End mean: 0.6638666666666666
+2025-01-12 00:38:14,776 - ERROR - Data quality check failed for Data/PriceData\STEM.parquet.
+2025-01-12 00:38:14,864 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 60.03333333333333, End mean: 1.6602666666666663
+2025-01-12 00:38:14,864 - ERROR - Data quality check failed for Data/PriceData\STKH.parquet.
+2025-01-12 00:38:20,780 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 6986.0, End mean: 2.5413333333333328
+2025-01-12 00:38:20,781 - ERROR - Data quality check failed for Data/PriceData\SUNE.parquet.
+2025-01-12 00:38:20,828 - ERROR - Data is flat. Variance in Open, High, Low, Close prices is too low.
+2025-01-12 00:38:20,829 - ERROR - Data quality check failed for Data/PriceData\SVA.parquet.
+2025-01-12 00:38:21,103 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 11.070000000000002, End mean: 0.43853333333333333
+2025-01-12 00:38:21,103 - ERROR - Data quality check failed for Data/PriceData\SXTC.parquet.
+2025-01-12 00:38:21,106 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:21,106 - ERROR - Data quality check failed for Data/PriceData\SY.parquet.
+2025-01-12 00:38:21,106 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:21,106 - ERROR - Data quality check failed for Data/PriceData\SYBX.parquet.
+2025-01-12 00:38:21,128 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 247.651666, End mean: 6.123133333333333
+2025-01-12 00:38:21,128 - ERROR - Data quality check failed for Data/PriceData\SWVL.parquet.
+2025-01-12 00:38:26,675 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 29.693333333333335, End mean: 0.22186666666666666
+2025-01-12 00:38:26,675 - ERROR - Data quality check failed for Data/PriceData\SYRS.parquet.
+2025-01-12 00:38:26,679 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 257040.0, End mean: 6.8306666666666676
+2025-01-12 00:38:26,679 - ERROR - Data quality check failed for Data/PriceData\SYTA.parquet.
+2025-01-12 00:38:26,834 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:26,834 - ERROR - Data quality check failed for Data/PriceData\TANH.parquet.
+2025-01-12 00:38:26,839 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 16.546666666666667, End mean: 0.39
+2025-01-12 00:38:26,839 - ERROR - Data quality check failed for Data/PriceData\TAOP.parquet.
+2025-01-12 00:38:27,229 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 41.78999999999999, End mean: 1.0533333333333335
+2025-01-12 00:38:27,229 - ERROR - Data quality check failed for Data/PriceData\TC.parquet.
+2025-01-12 00:38:31,982 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 136078.57142857142, End mean: 0.5794285714285715
+2025-01-12 00:38:31,982 - ERROR - Data quality check failed for Data/PriceData\TCBP.parquet.
+2025-01-12 00:38:32,130 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 144.1, End mean: 1.9373333333333334
+2025-01-12 00:38:32,130 - ERROR - Data quality check failed for Data/PriceData\TCRT.parquet.
+2025-01-12 00:38:37,581 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1320.3199959999997, End mean: 6.051999999999999
+2025-01-12 00:38:37,581 - ERROR - Data quality check failed for Data/PriceData\TENX.parquet.
+2025-01-12 00:38:37,894 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1294.125, End mean: 2.097866666666667
+2025-01-12 00:38:37,894 - ERROR - Data quality check failed for Data/PriceData\THAR.parquet.
+2025-01-12 00:38:38,123 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:38,124 - ERROR - Data quality check failed for Data/PriceData\THM.parquet.
+2025-01-12 00:38:43,100 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 36.233333333333334, End mean: 1.714
+2025-01-12 00:38:43,100 - ERROR - Data quality check failed for Data/PriceData\TIRX.parquet.
+2025-01-12 00:38:43,121 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 314.26666666666665, End mean: 0.29660000000000003
+2025-01-12 00:38:43,121 - ERROR - Data quality check failed for Data/PriceData\TIVC.parquet.
+2025-01-12 00:38:43,202 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 114.02142857142859, End mean: 3.414285714285714
+2025-01-12 00:38:43,202 - ERROR - Data quality check failed for Data/PriceData\TKLF.parquet.
+2025-01-12 00:38:43,333 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:43,333 - ERROR - Data quality check failed for Data/PriceData\TLSA.parquet.
+2025-01-12 00:38:43,450 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:43,451 - ERROR - Data quality check failed for Data/PriceData\TLPH.parquet.
+2025-01-12 00:38:43,455 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:43,455 - ERROR - Data quality check failed for Data/PriceData\TLSIW.parquet.
+2025-01-12 00:38:43,715 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:43,715 - ERROR - Data quality check failed for Data/PriceData\TMC.parquet.
+2025-01-12 00:38:44,141 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:44,141 - ERROR - Data quality check failed for Data/PriceData\TMCWW.parquet.
+2025-01-12 00:38:48,900 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:48,901 - ERROR - Data quality check failed for Data/PriceData\TMQ.parquet.
+2025-01-12 00:38:48,922 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 146.78, End mean: 1.261666666666667
+2025-01-12 00:38:48,922 - ERROR - Data quality check failed for Data/PriceData\TNFA.parquet.
+2025-01-12 00:38:48,963 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1962.6666666666667, End mean: 0.36599999999999994
+2025-01-12 00:38:48,963 - ERROR - Data quality check failed for Data/PriceData\TNXP.parquet.
+2025-01-12 00:38:48,968 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:48,968 - ERROR - Data quality check failed for Data/PriceData\TOI.parquet.
+2025-01-12 00:38:48,973 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:48,974 - ERROR - Data quality check failed for Data/PriceData\TOMZ.parquet.
+2025-01-12 00:38:48,977 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 212.16, End mean: 6.2906666666666675
+2025-01-12 00:38:48,977 - ERROR - Data quality check failed for Data/PriceData\TOPS.parquet.
+2025-01-12 00:38:48,980 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:48,980 - ERROR - Data quality check failed for Data/PriceData\TOUR.parquet.
+2025-01-12 00:38:48,984 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 67.5, End mean: 1.4886666666666668
+2025-01-12 00:38:48,984 - ERROR - Data quality check failed for Data/PriceData\TOVX.parquet.
+2025-01-12 00:38:55,674 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:38:55,675 - ERROR - Data quality check failed for Data/PriceData\TRX.parquet.
+2025-01-12 00:39:00,267 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:00,267 - ERROR - Data quality check failed for Data/PriceData\TSSI.parquet.
+2025-01-12 00:39:00,385 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 2240.6666666666665, End mean: 0.3818666666666667
+2025-01-12 00:39:00,386 - ERROR - Data quality check failed for Data/PriceData\TTOO.parquet.
+2025-01-12 00:39:06,124 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:06,124 - ERROR - Data quality check failed for Data/PriceData\UAMY.parquet.
+2025-01-12 00:39:06,773 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1430.6666666666667, End mean: 3.518
+2025-01-12 00:39:06,773 - ERROR - Data quality check failed for Data/PriceData\UAVS.parquet.
+2025-01-12 00:39:16,764 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 168.3199986666667, End mean: 1.1950000000000003
+2025-01-12 00:39:16,764 - ERROR - Data quality check failed for Data/PriceData\UK.parquet.
+2025-01-12 00:39:16,941 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:16,941 - ERROR - Data quality check failed for Data/PriceData\UNCY.parquet.
+2025-01-12 00:39:17,107 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 40.99333333333334, End mean: 1.7173333333333334
+2025-01-12 00:39:17,107 - ERROR - Data quality check failed for Data/PriceData\UP.parquet.
+2025-01-12 00:39:17,122 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 145.49999866666667, End mean: 0.6393333333333334
+2025-01-12 00:39:17,122 - ERROR - Data quality check failed for Data/PriceData\UPC.parquet.
+2025-01-12 00:39:17,420 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 85.25333333333333, End mean: 4.066000000000001
+2025-01-12 00:39:17,420 - ERROR - Data quality check failed for Data/PriceData\UPXI.parquet.
+2025-01-12 00:39:22,926 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:22,927 - ERROR - Data quality check failed for Data/PriceData\USAS.parquet.
+2025-01-12 00:39:29,044 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 129.33333333333334, End mean: 4.423333333333333
+2025-01-12 00:39:29,044 - ERROR - Data quality check failed for Data/PriceData\UXIN.parquet.
+2025-01-12 00:39:29,547 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 155.33333466666667, End mean: 4.284666666666666
+2025-01-12 00:39:29,547 - ERROR - Data quality check failed for Data/PriceData\VCSA.parquet.
+2025-01-12 00:39:34,453 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9917.333333333334, End mean: 6.620666666666667
+2025-01-12 00:39:34,453 - ERROR - Data quality check failed for Data/PriceData\VERB.parquet.
+2025-01-12 00:39:34,457 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,457 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 25.369999999999997, End mean: 0.37353333333333333
+2025-01-12 00:39:34,457 - ERROR - Data quality check failed for Data/PriceData\VERU.parquet.
+2025-01-12 00:39:34,457 - ERROR - Data quality check failed for Data/PriceData\VERO.parquet.
+2025-01-12 00:39:34,488 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,488 - ERROR - Data quality check failed for Data/PriceData\VFF.parquet.
+2025-01-12 00:39:34,586 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,586 - ERROR - Data quality check failed for Data/PriceData\VGZ.parquet.
+2025-01-12 00:39:34,718 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,718 - ERROR - Data quality check failed for Data/PriceData\VINC.parquet.
+2025-01-12 00:39:34,720 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,720 - ERROR - Data quality check failed for Data/PriceData\VINE.parquet.
+2025-01-12 00:39:34,723 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,723 - ERROR - Data quality check failed for Data/PriceData\VIOT.parquet.
+2025-01-12 00:39:34,904 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:34,904 - ERROR - Data quality check failed for Data/PriceData\VIRX.parquet.
+2025-01-12 00:39:39,818 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1650720.0, End mean: 4.0793333333333335
+2025-01-12 00:39:39,818 - ERROR - Data quality check failed for Data/PriceData\VLCN.parquet.
+2025-01-12 00:39:40,014 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 632.3849979999999, End mean: 1.5913333333333328
+2025-01-12 00:39:40,014 - ERROR - Data quality check failed for Data/PriceData\VMAR.parquet.
+2025-01-12 00:39:40,131 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:40,131 - ERROR - Data quality check failed for Data/PriceData\VNRX.parquet.
+2025-01-12 00:39:45,987 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 29.326666666666664, End mean: 0.3685333333333334
+2025-01-12 00:39:45,987 - ERROR - Data quality check failed for Data/PriceData\VRPX.parquet.
+2025-01-12 00:39:46,273 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 508.0799999999999, End mean: 2.175666666666667
+2025-01-12 00:39:46,273 - ERROR - Data quality check failed for Data/PriceData\VS.parquet.
+2025-01-12 00:39:46,411 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:46,411 - ERROR - Data quality check failed for Data/PriceData\VSSYW.parquet.
+2025-01-12 00:39:51,993 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 694.3333333333334, End mean: 0.4386666666666668
+2025-01-12 00:39:51,994 - ERROR - Data quality check failed for Data/PriceData\VTAK.parquet.
+2025-01-12 00:39:52,337 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:52,337 - ERROR - Data quality check failed for Data/PriceData\VXRT.parquet.
+2025-01-12 00:39:57,621 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:39:57,621 - ERROR - Data quality check failed for Data/PriceData\WALDW.parquet.
+2025-01-12 00:39:57,638 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 23.89333333333333, End mean: 0.767
+2025-01-12 00:39:57,639 - ERROR - Data quality check failed for Data/PriceData\WATT.parquet.
+2025-01-12 00:39:57,766 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 14.062000000000003, End mean: 0.5246666666666667
+2025-01-12 00:39:57,766 - ERROR - Data quality check failed for Data/PriceData\WBX.parquet.
+2025-01-12 00:40:03,713 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 76406.4, End mean: 3.5806666666666653
+2025-01-12 00:40:03,713 - ERROR - Data quality check failed for Data/PriceData\WHLR.parquet.
+2025-01-12 00:40:03,715 - ERROR - DataFrame is empty or too short to process.
+2025-01-12 00:40:03,715 - ERROR - Data quality check failed for Data/PriceData\WHLRL.parquet.
+2025-01-12 00:40:03,737 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:03,737 - ERROR - Data quality check failed for Data/PriceData\WIMI.parquet.
+2025-01-12 00:40:03,751 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1288.8, End mean: 0.31533333333333335
+2025-01-12 00:40:03,751 - ERROR - Data quality check failed for Data/PriceData\WINT.parquet.
+2025-01-12 00:40:03,923 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 19360.0, End mean: 2.0333333333333337
+2025-01-12 00:40:03,923 - ERROR - Data quality check failed for Data/PriceData\WISA.parquet.
+2025-01-12 00:40:05,073 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 77.23333333333333, End mean: 0.7859333333333333
+2025-01-12 00:40:05,073 - ERROR - Data quality check failed for Data/PriceData\WKHS.parquet.
+2025-01-12 00:40:09,776 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 74.2, End mean: 2.398
+2025-01-12 00:40:09,776 - ERROR - Data quality check failed for Data/PriceData\WNW.parquet.
+2025-01-12 00:40:15,830 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 57.458333333333336, End mean: 0.32180000000000003
+2025-01-12 00:40:15,830 - ERROR - Data quality check failed for Data/PriceData\WTO.parquet.
+2025-01-12 00:40:16,178 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:16,179 - ERROR - Data quality check failed for Data/PriceData\WWR.parquet.
+2025-01-12 00:40:19,838 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 8.078666666666667, End mean: 0.40006666666666674
+2025-01-12 00:40:19,838 - ERROR - Data quality check failed for Data/PriceData\XAIR.parquet.
+2025-01-12 00:40:19,933 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:19,934 - ERROR - Data quality check failed for Data/PriceData\XELB.parquet.
+2025-01-12 00:40:19,973 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:19,973 - ERROR - Data quality check failed for Data/PriceData\XFOR.parquet.
+2025-01-12 00:40:19,979 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1968.2666666666667, End mean: 0.9301999999999999
+2025-01-12 00:40:19,979 - ERROR - Data quality check failed for Data/PriceData\XHG.parquet.
+2025-01-12 00:40:20,278 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 74.41999999999999, End mean: 3.330666666666667
+2025-01-12 00:40:20,278 - ERROR - Data quality check failed for Data/PriceData\XOS.parquet.
+2025-01-12 00:40:20,279 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:20,279 - ERROR - Data quality check failed for Data/PriceData\XPL.parquet.
+2025-01-12 00:40:24,375 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 154.70999799999998, End mean: 1.1740666666666668
+2025-01-12 00:40:24,375 - ERROR - Data quality check failed for Data/PriceData\XRTX.parquet.
+2025-01-12 00:40:24,387 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 976500.0, End mean: 12.287333333333333
+2025-01-12 00:40:24,387 - ERROR - Data quality check failed for Data/PriceData\XTIA.parquet.
+2025-01-12 00:40:24,392 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:24,392 - ERROR - Data quality check failed for Data/PriceData\XTKG.parquet.
+2025-01-12 00:40:24,392 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:24,393 - ERROR - Data quality check failed for Data/PriceData\XTNT.parquet.
+2025-01-12 00:40:24,394 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 33.89333333333333, End mean: 1.5273333333333334
+2025-01-12 00:40:24,394 - ERROR - Data quality check failed for Data/PriceData\XWEL.parquet.
+2025-01-12 00:40:24,396 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 81928.8, End mean: 5.493266666666666
+2025-01-12 00:40:24,396 - ERROR - Data quality check failed for Data/PriceData\XXII.parquet.
+2025-01-12 00:40:24,398 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:24,398 - ERROR - Data quality check failed for Data/PriceData\YCBD-PA.parquet.
+2025-01-12 00:40:24,399 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:24,399 - ERROR - Data quality check failed for Data/PriceData\YCBD.parquet.
+2025-01-12 00:40:24,431 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:24,431 - ERROR - Data quality check failed for Data/PriceData\YHGJ.parquet.
+2025-01-12 00:40:24,779 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 1396.2666666666667, End mean: 1.1938666666666669
+2025-01-12 00:40:24,779 - ERROR - Data quality check failed for Data/PriceData\YYAI.parquet.
+2025-01-12 00:40:24,906 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 197.78666066666665, End mean: 1.3139999999999998
+2025-01-12 00:40:24,906 - ERROR - Data quality check failed for Data/PriceData\ZAPP.parquet.
+2025-01-12 00:40:29,356 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 993.4333333333333, End mean: 1.9440000000000002
+2025-01-12 00:40:29,356 - ERROR - Data quality check failed for Data/PriceData\ZCAR.parquet.
+2025-01-12 00:40:29,732 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 67.506, End mean: 3.022333333333334
+2025-01-12 00:40:29,732 - ERROR - Data quality check failed for Data/PriceData\ZNTL.parquet.
+2025-01-12 00:40:29,666 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:29,769 - ERROR - Data quality check failed for Data/PriceData\ZKIN.parquet.
+2025-01-12 00:40:29,834 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-12 00:40:29,835 - ERROR - Data quality check failed for Data/PriceData\ZOM.parquet.
+2025-01-12 00:40:30,690 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 3453.0, End mean: 1.1905714285714286
+2025-01-12 00:40:30,690 - ERROR - Data quality check failed for Data/PriceData\ZVSA.parquet.
+2025-01-12 22:10:39,313 - INFO - Starting the process...
+2025-01-13 22:10:19,792 - INFO - Starting the process...
+2025-01-13 22:16:10,330 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 44.24, End mean: 2.2009999999999996
+2025-01-13 22:16:10,330 - ERROR - Data quality check failed for Data/PriceData\CELU.parquet.
+2025-01-13 22:21:59,562 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 9.912, End mean: 0.49413333333333337
+2025-01-13 22:21:59,562 - ERROR - Data quality check failed for Data/PriceData\GGR.parquet.
+2025-01-13 22:22:25,729 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 47.47, End mean: 2.3659999999999997
+2025-01-13 22:22:25,729 - ERROR - Data quality check failed for Data/PriceData\GOVX.parquet.
+2025-01-14 22:10:16,066 - INFO - Starting the process...
+2025-01-14 22:22:05,569 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 80.9, End mean: 3.635666666666667
+2025-01-14 22:22:05,569 - ERROR - Data quality check failed for Data/PriceData\PRFX.parquet.
+2025-01-15 22:10:34,142 - INFO - Starting the process...
+2025-01-16 22:09:19,283 - INFO - Starting the process...
+2025-01-17 22:09:06,794 - INFO - Starting the process...
+2025-01-17 22:12:35,931 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-17 22:12:35,931 - ERROR - Data quality check failed for Data/PriceData\ATXG.parquet.
+2025-01-17 22:43:32,060 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 27.719999999999995, End mean: 1.3760000000000001
+2025-01-17 22:43:32,061 - ERROR - Data quality check failed for Data/PriceData\VVPR.parquet.
+2025-01-18 22:09:03,661 - INFO - Starting the process...
+2025-01-19 22:08:31,464 - INFO - Starting the process...
+2025-01-20 22:11:17,223 - INFO - Starting the process...
+2025-01-21 22:09:18,138 - INFO - Starting the process...
+2025-01-22 22:08:46,451 - INFO - Starting the process...
+2025-01-22 22:14:43,850 - ERROR - More than 1/3 of the data has a close price below 1. Skipping the data.
+2025-01-22 22:14:43,850 - ERROR - Data quality check failed for Data/PriceData\CDIO.parquet.
+2025-01-23 22:08:29,242 - INFO - Starting the process...
+2025-01-23 22:25:29,910 - ERROR - Signs of reverse stock splits detected or high initial prices: Start mean: 84.88266666666668, End mean: 4.2026666666666666
+2025-01-23 22:25:29,910 - ERROR - Data quality check failed for Data/PriceData\TTEC.parquet.

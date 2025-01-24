@@ -232,12 +232,14 @@ class MyStrategy(bt.Strategy):
         ('take_profit_percent', 100),
         ('position_timeout', 9),
         ('expected_profit_per_day_percentage', 0.25),
+        ('max_daily_drop_percent', 9.5),
+        ('take_profit_multiplier', 2.0),
         ('debug', True),
         ('assume_live', True),  # New parameter to control this behavior
     )
 
     def __init__(self):
-
+        self.rule_201_filter = set()
         self.order_dict = {}
         self.market_open = True
         self.data_ready = {d: False for d in self.datas}
@@ -256,7 +258,31 @@ class MyStrategy(bt.Strategy):
         )
 
 
+    def get_current_position_count(self):
+        """Count how many symbols are either actively held or have a pending buy order."""
+        count = 0
 
+        # 1) Count actual open positions from the broker
+        #    This is the simplest approach: getposition() for each data feed
+        for datafeed in self.datas:
+            pos = self.getposition(datafeed)
+            if pos.size > 0:
+                count += 1
+
+        # 2) Count any pending buy orders in self.order_dict that have not completed
+        #    (Optional, depending on whether you want to count pending "Submitted" as 'open')
+        for order_info in self.order_dict.values():
+            order = order_info.get('order')
+            status = order_info.get('status')
+            data_name = order_info.get('data_name')
+
+            # If this is a buy order and not yet filled/canceled/rejected,
+            # then we treat it as a future open position. 
+            # We can detect buy orders in Backtrader by order.isbuy() or by checking order_info.
+            if order and order.isbuy() and status in ['Submitted', 'PreSubmitted', 'Accepted']:
+                count += 1
+
+        return count
 
 
 
@@ -386,6 +412,19 @@ class MyStrategy(bt.Strategy):
             del self.order_dict[order.ref]
 
 
+    def prenext(self):
+        """Pre-calculate Rule 201 status for all symbols"""
+        for d in self.datas:
+            if len(d) > 1:
+                prev_close = d.close[-1]
+                current_price = d.close[0]
+                drop_pct = ((prev_close - current_price) / prev_close) * 100
+                if drop_pct > self.params.max_daily_drop_percent:
+                    self.rule_201_filter.add(d._name)
+                    logging.info(f"Rule 201 filter triggered for {d._name} ({drop_pct:.2f}% drop)")
+
+
+
 
 
     def next(self):
@@ -431,16 +470,19 @@ class MyStrategy(bt.Strategy):
                 logging.info(f"{symbol} - Position closed and flag reset")
             elif position.size == 0 and not self.position_closed[symbol]:
                 logging.info(f'{symbol}: No position flag detected fresh check.')
-                logging.info(f'{symbol}: No position. Evaluating buy signals for data.')
                 print(f'{symbol}: No position. Evaluating buy signals for data.')
-                self.process_buy_signal(data)
+                if self.get_current_position_count(self) > self.params.max_positions:
+                    logging.info("Max position count reached. Skipping buy signal evaluation.")
+                    continue
+                else:
+                    logging.info(f'Correct amount of symbols detected evaluating buy signals for symbol {symbol}')
+                    self.process_buy_signal(data)
+                
             elif position.size < 0:
                 logging.error(f'{symbol}: ERROR - We have shorted this stock! Current position size: {position.size}')
+                self.close_position(data, "Short position detected")
 
-            
-
-
-            
+             
     ##============[EVALUATE SELL CONDITIONS]==================##
     ##============[EVALUATE SELL CONDITIONS]==================##
     ##============[EVALUATE SELL CONDITIONS]==================##
@@ -592,6 +634,12 @@ class MyStrategy(bt.Strategy):
 
 
 
+
+
+
+
+
+
     #================[PLACE ORDER WITH TWS ]=================#
     #================[PLACE ORDER WITH TWS ]=================#
     #================[PLACE ORDER WITH TWS ]=================#
@@ -733,70 +781,70 @@ class MyStrategy(bt.Strategy):
 
 
 
-    def process_buy_signal(self, data):
-        """
-        Issues a bracket order:
-          - Main buy: limit at close[0] + tick
-          - Low side: trailing stop at 3% behind
-          - High side: limit take-profit at +100% from current price
-        """
-        symbol = data._name
-        logging.info(f"Processing buy signal for {symbol}")
 
-        # 1) Prevent duplicates
+
+
+    def process_buy_signal(self, data):
+        """Enhanced with Rule 201 filtering and profit management"""
+        symbol = data._name
+        
+        # Skip if in Rule 201 filtered set
+        if symbol in self.rule_201_filter:
+            logging.info(f"Skipping {symbol} - exceeds max daily drop threshold")
+            return
+
+        # Existing duplicate check
         current_order_symbols = [o.get('data_name') for o in self.order_dict.values()]
         if symbol in current_order_symbols:
-            logging.info(f"Order already pending for {symbol}, skipping")
             return
 
-        # 2) Skip if we already own it
+        # Existing ownership check
         currently_bought = self.live_trades[self.live_trades['IsCurrentlyBought'] == True]
         if symbol in currently_bought['Symbol'].values:
-            logging.info(f"{symbol} is marked as already owned, skipping buy signal.")
             return
 
-        # 3) Figure out how many shares we want
+        # Position sizing (preserve your existing logic)
         size = self.calculate_position_size(data)
         if size <= 0:
-            logging.info(f"Size for {symbol} is {size}. Not placing bracket.")
             return
 
-        # 4) Build bracket parameters
-        tick = 0.01
-        # e.g. "ask + min tick" 
-        limit_price = round(data.close[0] + tick, 2)
+        # Enhanced price calculations
+        try:
+            current_close = data.close[0]
+            tick_size = 0.01 if current_close >= 1.0 else 0.0001
+            
+            # Preserve your 100% take-profit logic
+            take_profit_price = round(current_close * self.params.take_profit_multiplier, 4)
+            limit_price = round(current_close + tick_size, 4)
+            
+            # Safety check for limit price
+            if limit_price <= current_close:
+                limit_price = round(current_close * 1.0001, 4)
 
-        # trailing stop at 3% below
-        # you can pick your own trailing logic
-        stop_trailpercent = 0.03
+        except IndexError:
+            logging.error(f"Data not available for {symbol}")
+            return
 
-        # take-profit at +100% from current price (just an example)
-        take_profit_price = round(data.close[0] * 2.0, 2)
-
-        # 5) Place the bracket
+        # Place bracket order if all checks pass
         main_order, stop_order, limit_order = self.place_bracket_buy(
-            data             = data,
-            size             = size,
-            limit_price      = limit_price,
-            stop_trailpercent= stop_trailpercent,
-            take_profit_price= take_profit_price
+            data=data,
+            size=size,
+            limit_price=limit_price,
+            stop_trailpercent=0.03,
+            take_profit_price=take_profit_price
         )
 
-        # 6) Track references
         if main_order and main_order.ref:
             self.order_dict[main_order.ref] = {
                 'order': main_order,
                 'data_name': symbol,
                 'status': 'SUBMITTED',
                 'stop_child': stop_order,
-                'limit_child': limit_order
+                'limit_child': limit_order,
+                'take_profit': take_profit_price,
+                'entry_price': limit_price
             }
-            logging.info(f"Bracket order placed for {symbol}; parentRef={main_order.ref} "
-                         f"stopRef={stop_order.ref}, limitRef={limit_order.ref}")
-        else:
-            logging.error(f"Failed to create bracket for {symbol}")
-
-
+            logging.info(f"Bracket order placed for {symbol} | Target: {take_profit_price} (+{100*(self.params.take_profit_multiplier-1):.0f}%)")
 
 
 
