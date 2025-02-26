@@ -6,19 +6,13 @@ import argparse
 import random
 import pandas as pd
 import numpy as np
-from backtrader.feeds import PandasData
 import backtrader as bt
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta, timezone
 from tqdm import tqdm
-from numba import jit
-from functools import partial
 import pyarrow.parquet as pq
-from tqdm.asyncio import tqdm_asyncio
 import multiprocessing
-from functools import partial
 from numba import njit
-from functools import lru_cache
 import traceback
 from collections import Counter
 from Trading_Functions import *
@@ -190,6 +184,9 @@ class CustomPandasData(bt.feeds.PandasData):
 
 class MovingAverageCrossoverStrategy(bt.Strategy):
     params = (
+
+        ('rule_201_threshold', -9.99),  # -10% threshold with 0.01% buffer
+        ('rule_201_cooldown', 1),       # Days to avoid after trigger
         ('days_range', 5),
         ('fast_period', 14),
         ('slow_period', 60),
@@ -220,6 +217,12 @@ class MovingAverageCrossoverStrategy(bt.Strategy):
         self.asset_groups = {}
         self.asset_correlations = {}
         self.group_allocations = {}
+        self.rule_201_violations = set()  # <-- ADD THIS
+        self.rule_201_trigger_dates = dict()  # <-- ADD THIS
+        self.daily_blocked = set()
+        self.last_logged_date = None
+
+
 
         self.total_groups = self.detect_total_groups()
         self.correlation_df = pd.read_parquet('Correlations.parquet')
@@ -254,7 +257,45 @@ class MovingAverageCrossoverStrategy(bt.Strategy):
 
 
 
+    def prenext(self):
+        """Run Rule 201 checks before each new trading day"""
+        self._clear_expired_restrictions()
 
+        for d in self.datas:
+            if len(d) > 1:  # Need at least 2 data points
+                symbol = d._name
+                prev_close = d.close[-1]
+                current_price = d.open[0]
+
+                if prev_close > 0:
+                    daily_return = (current_price / prev_close - 1) * 100
+
+                    if daily_return <= self.params.rule_201_threshold:
+                        # Add position check
+                        if self.getposition(d).size > 0:
+                            log_msg = f"RULE 201 VIOLATION (ACTIVE POSITION) for {symbol}"
+                        else:
+                            log_msg = f"Rule 201 triggered for {symbol}"
+
+                        self.rule_201_violations.add(symbol)
+                        self.rule_201_trigger_dates[symbol] = self.datetime.date()
+                        logging.info(f"{log_msg} | Return: {daily_return:.2f}%")
+
+    def _clear_expired_restrictions(self):
+        """Remove symbols from restriction list after cooldown"""
+        current_date = self.datetime.date()
+        expired = []
+
+        for symbol, trigger_date in self.rule_201_trigger_dates.items():
+            days_since = (current_date - trigger_date).days
+            if days_since > self.params.rule_201_cooldown:
+                expired.append(symbol)
+                logging.info(f"Rule 201 cooldown expired for {symbol} "
+                             f"({days_since} days since trigger)")
+
+        for symbol in expired:
+            self.rule_201_violations.discard(symbol)
+            del self.rule_201_trigger_dates[symbol]
 
     def next(self):
         self.day_count += 1
@@ -483,10 +524,21 @@ class MovingAverageCrossoverStrategy(bt.Strategy):
         return buy_candidates
 
     def can_buy(self, data, current_date):
-        return (not self.should_skip_buying(data, current_date) and
-                self.can_buy_more_positions() and
-                self.is_buy_signal(data))
+        symbol = data._name
+        # Add Rule 201 check
+        rule_201_blocked = symbol in self.rule_201_violations
+        if rule_201_blocked:
 
+
+
+            logging.info(f"Skipping {symbol} due to active Rule 201 restriction")
+
+        return (
+            not self.should_skip_buying(data, current_date) and
+            self.can_buy_more_positions() and
+            self.is_buy_signal(data) and
+            not rule_201_blocked  # New condition
+        )
 
 
 
@@ -1044,10 +1096,6 @@ def main():
     buysignalparquet = buysignalparquet[0:0]
     ##write the empty dataframe back to the parquet file
     buysignalparquet.to_parquet('_Buy_Signals.parquet')
-
-
-
-
 
 
     if args.BrokerTest > 0:

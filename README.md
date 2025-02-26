@@ -119,19 +119,41 @@ A comprehensive end-to-end stock market analysis, prediction, and automated trad
 (45mins at 32 cores 5.15GHz not including 1.5Hrs for ratelimited OHLCV download each night)
 - SSD storage for data management (approx. 5 GB of data)
 
-### Software
+
+### Software Prerequisites
 - Python 3.8+
-- Interactive Brokers TWS or IB Gateway
-- Required Python packages:
-  ```
-  pandas
-  numpy
-  scikit-learn
-  gplearn    # or my custom genetic programming library
+- Interactive Brokers TWS or IB Gateway (with configured ports)
+
+2. Install required packages:
+``` python
+pip install -r requirements.txt
+```
+
+### Dependencies
+The following Python packages are required and can be installed using the requirements.txt file:
+
+```plaintext
+  argparse
   backtrader
-  ib_insync  #absolutely needed
+  backtrader-ib-insync
+  exchange_calendars
+  ib_insync
+  joblib
+  matplotlib
+  numba
+  numpy
+  pandas
+  pandas_market_calendars
   pyarrow
-  ```
+  pykalman
+  pytz
+  requests
+  scikit-learn
+  scipy
+  tqdm
+  urllib3
+  yfinance
+```
 
 ## Usage
 

@@ -1256,6 +1256,10 @@ def DataQualityCheck(df, all_dfs=None):
     if df['Date'].dtype != 'datetime64[ns]':
         df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
+    # Add 'Adj Close' if it doesn't exist
+    if 'Adj Close' not in df.columns:
+        df['Adj Close'] = df['Close']
+
     # **Ensure data goes back to at least 2022**
     earliest_date = df['Date'].min()
     if earliest_date > pd.Timestamp('2022-05-01'):

@@ -519,6 +519,9 @@ def get_days_since_last_trade(symbol, is_live=False):
 
 
 
+
+
+
 def colorize_output(value, label, good_threshold, bad_threshold, lower_is_better=False, reverse=False):
     def get_color_code(normalized_value):
         # Define color steps with slightly toned down brightness for extremes
