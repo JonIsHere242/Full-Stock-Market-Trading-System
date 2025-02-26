@@ -6,6 +6,8 @@ A comprehensive end-to-end stock market analysis, prediction, and automated trad
 
 ### 1. Data Collection and Preprocessing
 
+### 1. Data Collection and Preprocessing
+
 #### SEC Ticker Download (1__TickerDownloader.py)
 - Automated fetching of ticker symbols from SEC database
 - Exchange-specific filtering (NYSE, NASDAQ)
@@ -14,16 +16,35 @@ A comprehensive end-to-end stock market analysis, prediction, and automated trad
 - Output: `TickerCIKs_{date}.parquet`
 
 #### Market Data Collection (2__BulkPriceDownloader.py)
+- **Enhanced IBKR Integration** with parallel processing and connection management
 - Two operational modes:
   - ColdStart: Initial bulk download of all historical data
   - RefreshMode: Daily updates for existing symbols
-- Configurable historical data depth (default: 2022-01-01)
-- Robust error handling and rate limiting
-- Data quality validation:
-  - Minimum trading days requirement
-  - Price consistency checks
-  - Volume validation
-- Output: Individual ticker parquet files in PriceData directory
+- **Advanced Error Handling**:
+  - Session recovery and automatic retry mechanisms
+  - Rate limiting and pacing violation prevention
+  - Comprehensive connection monitoring and metrics
+- **Performance Optimizations**:
+  - Configurable batch processing with multi-threading
+  - Resume capability for interrupted downloads
+  - Prioritized data quality validation
+- **Enhanced Data Collection**:
+  - Multiple data types (TRADES, BID, ASK, MIDPOINT)
+  - Flexible timeframe options (daily/minute)
+  - Regular and extended trading hours support
+- **Command-line Interface** with extensive configuration options
+- Output: 
+  - Yahoo-compatible files: `{ticker}.parquet`
+  - Enhanced daily data: `{ticker}/{ticker}_DAILY_ENHANCED.parquet`
+  - Minute data: `{ticker}/{ticker}_MINUTE_ENHANCED.parquet` (when enabled)
+
+#### Asset Derisking (AssetDerisker.ipynb)
+- Not a daily requirement (can be done whenever as the values don't change drastically)
+- K-means clustering for asset grouping based on multi timeframe weighted returns
+- Implementation based on "Advances in Active Portfolio Management"
+- Cross-asset correlation analysis
+- Group identification for interchangeable assets
+- Output: `Correlations.parquet` for portfolio diversification
 
 #### Asset Derisking (AssetDerisker.ipynb)
 - Not a daily requirement (can be done whenever as the values don't change drastically)

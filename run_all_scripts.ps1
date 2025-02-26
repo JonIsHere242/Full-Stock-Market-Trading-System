@@ -17,7 +17,7 @@ $scripts = @(
     @{
         Name = "Bulk Price Downloader"
         File = "2__BulkPriceDownloader.py"
-        Args = @("--RefreshMode", "--ClearOldData")
+        Args = @("--RefreshMode", "--skip-minute-data", "--request-delay", "0.5", "--batch-pause", "3")
     },
     @{
         Name = "Indicators Script"

@@ -17,7 +17,8 @@ from numba import njit, jit
 from scipy.stats import entropy
 from tqdm import tqdm
 from datetime import datetime, timedelta
-
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 """
 This script processes financial market data to calculate various technical indicators and saves the processed data Parquet format. It is designed to handle large datasets efficiently by utilizing multiple cores of the processor.
