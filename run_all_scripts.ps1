@@ -7,6 +7,9 @@ $logFile = "$basePath\Data\logging\__run_all_scripts.log"
 # Define the path to the Python executable
 $pythonExe = "C:\Users\Masam\miniconda3\envs\tf\python.exe"
 
+
+
+
 # Define the scripts to run with their respective arguments
 $scripts = @(
     @{
@@ -17,7 +20,7 @@ $scripts = @(
     @{
         Name = "Bulk Price Downloader"
         File = "2__BulkPriceDownloader.py"
-        Args = @("--RefreshMode", "--skip-minute-data", "--request-delay", "0.5", "--batch-pause", "3")
+        Args = @("--RefreshMode")
     },
     @{
         Name = "Indicators Script"
@@ -27,12 +30,12 @@ $scripts = @(
     @{
         Name = "Predictor Script"
         File = "4__Predictor.py"
-        Args = @("--predict")
+        Args = @("--predict", "--model", "xgb")
     },
     @{
-        Name = "Nightly Broker Script"
-        File = "5__NightlyBroker.py"
-        Args = @("--RunStocks", "1")
+        Name = "Nightly BackTester Script"
+        File = "5__NightlyBackTester.py"
+        Args = @("--force")
     }
 )
 
@@ -128,9 +131,103 @@ foreach ($script in $scripts) {
 }
 
 Write-Log "All scripts have been executed." -Color Yellow
-Write-Log "This Days's Buy Signals Saved to trading_data.parquet" -Color Yellow
+
+# Find and read the Buy Signals parquet file
+try {
+    Write-Log "Looking for Buy Signals parquet file..." -Color Cyan
+    $buySignalsFile = Get-ChildItem -Path "$basePath\Data" -Recurse -Filter "*Buy*Signals.parquet" | Select-Object -First 1
+
+    if ($buySignalsFile) {
+        Write-Log "Found Buy Signals file: $($buySignalsFile.FullName)" -Color Green
+        
+        # Create a Python script to read the parquet file
+        $tempPythonScript = [System.IO.Path]::GetTempFileName() + ".py"
+        @"
+import pandas as pd
+import os
+import sys
+from datetime import datetime, timedelta
+
+# Get the next trading day (simple approximation)
+today = datetime.now()
+next_trading_day = today + timedelta(days=1)
+if next_trading_day.weekday() >= 5:  # Saturday or Sunday
+    next_trading_day = today + timedelta(days=(7 - today.weekday()))
+
+try:
+    # Read the parquet file
+    file_path = '$($buySignalsFile.FullName.Replace("\", "\\"))'
+    df = pd.read_parquet(file_path)
+    
+    # Check for any buy signals where IsCurrentlyBought is True
+    buy_signals = df[df['IsCurrentlyBought'] == True].copy()
+    
+    if not buy_signals.empty:
+        print("\n===== BUY SIGNALS FOR NEXT TRADING DAY =====")
+        print(f"Next trading day: {next_trading_day.strftime('%Y-%m-%d')}")
+        print(f"Number of active buy signals: {len(buy_signals)}")
+        print("\nTop 5 signals by UpProbability:")
+        
+        # Sort by UpProbability and display top 5
+        top_signals = buy_signals.sort_values('UpProbability', ascending=False).head(5)
+        for i, row in top_signals.iterrows():
+            print(f"Symbol: {row['Symbol']}, UpProbability: {row['UpProbability']:.4f}, Buy Price: {row['LastBuySignalPrice']:.2f}, Position Size: {row['PositionSize']}")
+        
+        print("\n===========================================")
+    else:
+        print("\nNo active buy signals found for the next trading day.")
+    
+except Exception as e:
+    print(f"Error reading parquet file: {str(e)}")
+"@ | Out-File -FilePath $tempPythonScript -Encoding utf8
+
+        # Execute the Python script
+        $pinfo = New-Object System.Diagnostics.ProcessStartInfo
+        $pinfo.FileName = $pythonExe
+        $pinfo.Arguments = $tempPythonScript
+        $pinfo.UseShellExecute = $false
+        $pinfo.RedirectStandardOutput = $true
+        $pinfo.CreateNoWindow = $true
+
+        $process = New-Object System.Diagnostics.Process
+        $process.StartInfo = $pinfo
+        $process.Start() | Out-Null
+        $output = $process.StandardOutput.ReadToEnd()
+        $process.WaitForExit()
+
+        # Display the output
+        Write-Host $output
+        Write-Log $output -Color Yellow
+        
+        # Clean up the temporary Python script
+        Remove-Item -Path $tempPythonScript -Force
+    } else {
+        Write-Log "No Buy Signals parquet file found." -Color Yellow
+    }
+}
+catch {
+    Write-Log "Error while attempting to read Buy Signals file: $($_.Exception.Message)" -Color Red
+}
+
+Write-Log "This Day's Buy Signals Saved to trading_data.parquet" -Color Yellow
 Write-Log "Script execution completed." -Color Yellow
 Write-Log "=========================================" -Color White
+
+# Keep the window open for one hour
+Write-Host "`nKeeping window open for 1 hour to review results..." -ForegroundColor Cyan
+Write-Host "Press Ctrl+C to exit earlier if needed." -ForegroundColor Yellow
+
+try {
+    $endTime = (Get-Date).AddHours(1)
+    while ((Get-Date) -lt $endTime) {
+        Start-Sleep -Seconds 60
+        $timeLeft = [math]::Round(($endTime - (Get-Date)).TotalMinutes, 0)
+        Write-Host "`rTime remaining: $timeLeft minutes     " -NoNewline -ForegroundColor Gray
+    }
+}
+catch {
+    # Just exit if there's an error or user interruption
+}
 
 # Automatically exit after completion
 exit 0

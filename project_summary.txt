@@ -1,0 +1,303 @@
+📁 Stock-Market-LSTM (root)
+  📄 0__app.py
+    Python module: Load current buy signals from parquet file with correct typing
+  📄 1__TickerDownloader.py
+    #!/root/root/miniconda4/envs/tf/bin/python
+    # Import the enhanced logging functions
+    CONFIG = {
+  📄 2__BulkPriceDownloader.py
+    Python module: 2__BulkPriceDownloader.py - OPTIMIZED VERSION
+    =============================================
+    
+    INTERACTIVE BROKERS (IBKR) STOCK DATA DOWNLOADER - PERFORMANCE-FOCUSED
+    ----------------------------------------------------------------------
+    ...
+  📄 3__Indicators.py
+    Python module: Detects peaks and valleys in a time series without future data leakage.
+        Only uses data available up to each point in time (historical data).
+        
+        Parameters:
+        - df: DataFrame containing the time series data
+    ...
+  📄 4__Predictor.py
+    ##predictor script
+    logger = get_logger(script_name="4__Predictor")
+    try:
+  📄 5__NightlyBackTester.py
+    Python module: Get the last trading date from NYSE calendar.
+  📄 6__DailyBroker.py
+    Python module: Check if we should use the new production files
+  📄 AssetDerisker.ipynb
+  📄 contextmanager.py
+    Python module: An enhanced trading system analyzer that focuses on discovering file structure patterns
+        and data organization within a trading system codebase.
+        
+        Improvements:
+        - Better directory structure visualization
+    ...
+  📄 Correlations.parquet
+  📄 dashboard.log
+  📄 run_all_scripts.ps1
+  📄 Stock-Market-LSTM.code-workspace
+  📄 trade_history.parquet
+  📄 Util.py
+    Python module: Util.py - Unified trading system utilities
+  📄 Znewstimer.py
+    Python module: Run the RSS aggregator script and log the output
+  📄 ZZnews.py
+    # Create database directory if it doesn't exist
+    database_dir = Path("database")
+    database_dir.mkdir(exist_ok=True, parents=True)
+  📄 ZZZ_Action.ipynb
+  📄 _Buy_Signals.parquet
+  📄 _Live_trades.parquet
+  📁 app
+    📁 app\static
+      📁 app\static\css
+        📄 style.css
+          [Binary or unsupported file format: .css]
+      📁 app\static\js
+        📄 dashboard.js
+          [Binary or unsupported file format: .js]
+    📁 app\templates
+      📄 index.html
+        [Binary or unsupported file format: .html]
+  📁 Data
+    📁 Data\Production
+      📁 Data\Production\BacktestData
+        📄 backtest_results.parquet
+          [Error reading parquet: Could not open Parquet input source '<Buffer>': Parquet file size is 0 bytes]
+        📄 signals.parquet
+          [Error reading parquet: Could not open Parquet input source '<Buffer>': Parquet file size is 0 bytes]
+      📁 Data\Production\LiveTradingData
+        📄 active_positions.parquet
+          [Error reading parquet: Could not open Parquet input source '<Buffer>': Parquet file size is 0 bytes]
+        📄 completed_trades.parquet
+          [Error reading parquet: Could not open Parquet input source '<Buffer>': Parquet file size is 0 bytes]
+        📄 pending_signals.parquet
+          [Error reading parquet: Could not open Parquet input source '<Buffer>': Parquet file size is 0 bytes]
+    📁 Data\ModelData
+      📄 cat_model.joblib
+        [Binary or unsupported file format: .joblib]
+      📄 probability_histogram.png
+        [Binary or unsupported file format: .png]
+      📄 random_forest_model.joblib
+        [File too large to sample: 25.24 MB]
+      📄 rf_model_negative.joblib
+        [File too large to sample: 31.29 MB]
+      📄 rf_model_positive.joblib
+        [File too large to sample: 31.25 MB]
+      📄 test_predictions.parquet
+        [File too large to sample: 14.04 MB]
+      📄 xgb_model.joblib
+        [File too large to sample: 13.08 MB]
+      📁 Data\ModelData\TrainingData
+        📄 training_data.parquet
+          [File too large to sample: 1848.50 MB]
+      📁 Data\ModelData\FeatureImportances
+        📄 feature_importance.parquet
+          Shape: (140, 2)
+          Columns: feature, importance
+          Sample data:
+                           feature  importance
+                   days_since_high     0.01055
+          ...
+        📄 feature_importance_negative.parquet
+          Shape: (140, 2)
+          Columns: feature, importance
+          Sample data:
+                  feature  importance
+                      EFI     0.09694
+          ...
+        📄 feature_importance_positive.parquet
+          Shape: (140, 2)
+          Columns: feature, importance
+          Sample data:
+                               feature  importance
+                                   EFI     0.13280
+          ...
+    📁 Data\Context
+      📄 TRADING_SYSTEM_STRUCTURE.md
+        # Trading System Structure Analysis
+        
+        *Generated on 2025-03-17 20:58*
+        
+        
+        ...
+      📄 TRADING_SYSTEM_VISUAL.html
+        [Binary or unsupported file format: .html]
+    📁 Data\logging
+      📄 1__TickerDownloader.log
+        [Binary or unsupported file format: .log]
+      📄 2__BulkPriceDownloader.log
+        [Binary or unsupported file format: .log]
+      📄 3__Indicators.log
+        [Binary or unsupported file format: .log]
+      📄 4__Predictor.log
+        [Binary or unsupported file format: .log]
+      📄 5__NightlyBackTester.log
+        [Binary or unsupported file format: .log]
+      📄 dashboard.log
+        [Binary or unsupported file format: .log]
+      📄 download_progress.json
+        JSON with keys: processed_tickers, total_tickers, remaining_tickers, last_updated
+      📄 __daily_broker.log
+        [Binary or unsupported file format: .log]
+      📄 __run_all_scripts.log
+        [Binary or unsupported file format: .log]
+      📁 Data\logging\cache
+    📁 Data\TickerCikData
+      📄 BackupCIK.parquet
+        Shape: (7333, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+         320193     Apple Inc.   AAPL   Nasdaq
+        ...
+      📄 TickerCIKs_20241128.parquet
+        Shape: (7446, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+        1045810    NVIDIA CORP   NVDA   Nasdaq
+        ...
+      📄 TickerCIKs_20250221.parquet
+        Shape: (7333, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+         320193     Apple Inc.   AAPL   Nasdaq
+        ...
+      📄 TickerCIKs_20250224.parquet
+        Shape: (7333, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+         320193     Apple Inc.   AAPL   Nasdaq
+        ...
+      📄 TickerCIKs_20250310.parquet
+        Shape: (7294, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+         320193     Apple Inc.   AAPL   Nasdaq
+        ...
+      📄 TickerCIKs_20250315.parquet
+        Shape: (7293, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+         320193     Apple Inc.   AAPL   Nasdaq
+        ...
+      📄 TickerCIKs_20250317.parquet
+        Shape: (7294, 4)
+        Columns: cik, name, ticker, exchange
+        Sample data:
+            cik           name ticker exchange
+         320193     Apple Inc.   AAPL   Nasdaq
+        ...
+      📄 TickerCIKs_20250911.txt
+        	cik	name	ticker	exchange
+        
+        0	320193	Apple Inc.	AAPL	Nasdaq
+        
+        1	1045810	NVIDIA CORP	NVDA	Nasdaq
+        ...
+    📁 Data\RFpredictions
+      📎 {TICKER}.parquet (4376 files)
+        📄 Example 1: SPGI.parquet
+          Shape: (550, 14)
+          Columns: Date, Open, High, Low, Close, Volume, UpProbability, DownProbability, PositiveThreshold, NegativeThreshold... and 4 more columns
+          Sample data:
+                Date       Open  ...  Distance to Support (%)  volatility
+          2023-01-05 338.119995  ...                -0.940101         0.0
+          ...
+        📄 Example 2: MCRB.parquet
+          Shape: (550, 14)
+          Columns: Date, Open, High, Low, Close, Volume, UpProbability, DownProbability, PositiveThreshold, NegativeThreshold... and 4 more columns
+          Sample data:
+                Date  Open  ...  Distance to Support (%)  volatility
+          2023-01-05  5.49  ...               -24.811368         0.0
+          ...
+        📄 Example 3: RGCO.parquet
+          Shape: (549, 14)
+          Columns: Date, Open, High, Low, Close, Volume, UpProbability, DownProbability, PositiveThreshold, NegativeThreshold... and 4 more columns
+          Sample data:
+                Date      Open  ...  Distance to Support (%)  volatility
+          2023-01-06 22.250000  ...                 1.037914         0.0
+          ...
+    📁 Data\IndicatorData
+      📎 {TICKER}.parquet (4376 files)
+        📄 Example 1: HOTH.parquet
+          Shape: (550, 143)
+          Columns: Date, Open, High, Low, Close, Volume, Ticker, RSI, G_Momentum_Confluence_Indicator, G_Price_Gap_Analyzer... and 133 more columns
+          Sample data:
+                Date  Open  ...  Rolling_Std_151  Mean_Reversion_Z_Score_151_std_3
+          2023-01-05  6.36  ...         2.711896                         -0.442638
+          ...
+        📄 Example 2: VZ.parquet
+          Shape: (550, 143)
+          Columns: Date, Open, High, Low, Close, Volume, Ticker, RSI, G_Momentum_Confluence_Indicator, G_Price_Gap_Analyzer... and 133 more columns
+          Sample data:
+                Date      Open  ...  Rolling_Std_151  Mean_Reversion_Z_Score_151_std_3
+          2023-01-05 41.150002  ...         5.199674                         -0.267504
+          ...
+        📄 Example 3: SQM.parquet
+          Shape: (550, 143)
+          Columns: Date, Open, High, Low, Close, Volume, Ticker, RSI, G_Momentum_Confluence_Indicator, G_Price_Gap_Analyzer... and 133 more columns
+          Sample data:
+                Date      Open  ...  Rolling_Std_151  Mean_Reversion_Z_Score_151_std_3
+          2023-01-05 78.150002  ...         4.829017                         -0.794541
+          ...
+    📁 Data\PriceData
+      📂 {TICKER} (5835 directories)
+        📂 Example 1: GBBKR
+          Contains: GBBKR_DAILY_ENHANCED.parquet
+        📂 Example 2: ELPC
+          Contains: ELPC_DAILY_ENHANCED.parquet
+        📂 Example 3: QTRX
+          Contains: QTRX_DAILY_ENHANCED.parquet
+      📎 {TICKER}.parquet (4431 files)
+        📄 Example 1: INFA.parquet
+          Shape: (750, 7)
+          Columns: Date, Open, High, Low, Close, Volume, Ticker
+          Sample data:
+                Date  Open  ...   Volume  Ticker
+          2022-03-21 18.70  ... 327918.0    INFA
+          ...
+        📄 Example 2: ELVN.parquet
+          Shape: (750, 7)
+          Columns: Date, Open, High, Low, Close, Volume, Ticker
+          Sample data:
+                Date  Open  ...   Volume  Ticker
+          2022-03-21  7.00  ... 51315.25    ELVN
+          ...
+        📄 Example 3: NUVB.parquet
+          Shape: (750, 7)
+          Columns: Date, Open, High, Low, Close, Volume, Ticker
+          Sample data:
+                Date  Open  ...   Volume  Ticker
+          2022-03-21  5.41  ... 865909.0    NUVB
+          ...
+  📁 _old_versions
+    📄 Correlations_backup.parquet
+      Shape: (5559, 12)
+      Columns: Ticker, Cluster, mean_intragroup_correlation, diff_to_mean_group_corr, correlation_3, correlation_4, correlation_1, correlation_5, correlation_0, correlation_2... and 2 more columns
+      Sample data:
+      Ticker  Cluster  ...  correlation_6  correlation_7
+           A        3  ...       -0.12372        0.25473
+      ...
+    📄 old2__BulkPriceDownloader.py
+      Python module: This script downloads stock data from Yahoo Finance based on the presence of ticker files in the FINAL_DATA_DIRECTORY.
+      It supports both initial downloads (ColdStart) and refreshing existing data by appending the latest missing data.
+      Only high-quality data that extends back to at least January 1, 2022, is processed and saved.
+    📄 old4__Predictor.py
+      Python module: Set up logging configuration.
+    📄 old5__NightlyBroker.py
+      Python module: Set up logging configuration with detailed error handling and debugging.
+    📄 old6__DailyBroker.py
+      Python module: Debug print function that can be toggled on/off.
+    📄 PredictorTest.ipynb
+      Jupyter notebook with 3 cells (3 code cells)
+    📄 ZZZ_4__Predictor.py
+      Python module: Set up logging configuration.

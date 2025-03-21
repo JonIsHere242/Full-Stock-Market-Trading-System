@@ -1,0 +1,26 @@
+2025-03-21 00:13:17,814 - SEC_Processor - INFO - Starting SEC data processing pipeline
+2025-03-21 00:13:17,814 - SEC_Processor - INFO - Loading ticker mapping from Data/TickerCikData/TickerCIKs_20250319.parquet
+2025-03-21 00:13:17,949 - SEC_Processor - INFO - Loaded 5932 ticker-CIK mappings
+2025-03-21 00:13:17,949 - SEC_Processor - INFO - Starting batch processing of filings
+2025-03-21 00:13:18,006 - SEC_Processor - INFO - Found 5547 filing files to process
+2025-03-21 00:13:18,006 - SEC_Processor - INFO - Processing batch 1/6 (1000 files)
+2025-03-21 00:13:20,316 - SEC_Processor - INFO - Completed batch 1/6. Processed: 0, Errors: 0
+2025-03-21 00:13:20,316 - SEC_Processor - INFO - Processing batch 2/6 (1000 files)
+2025-03-21 00:13:22,608 - SEC_Processor - INFO - Completed batch 2/6. Processed: 0, Errors: 0
+2025-03-21 00:13:22,608 - SEC_Processor - INFO - Processing batch 3/6 (1000 files)
+2025-03-21 00:13:24,913 - SEC_Processor - INFO - Completed batch 3/6. Processed: 0, Errors: 0
+2025-03-21 00:13:24,913 - SEC_Processor - INFO - Processing batch 4/6 (1000 files)
+2025-03-21 00:13:27,206 - SEC_Processor - INFO - Completed batch 4/6. Processed: 0, Errors: 0
+2025-03-21 00:13:27,206 - SEC_Processor - INFO - Processing batch 5/6 (1000 files)
+2025-03-21 00:13:29,595 - SEC_Processor - INFO - Completed batch 5/6. Processed: 0, Errors: 0
+2025-03-21 00:13:29,595 - SEC_Processor - INFO - Processing batch 6/6 (547 files)
+2025-03-21 00:13:31,399 - SEC_Processor - INFO - Completed batch 6/6. Processed: 0, Errors: 0
+2025-03-21 00:13:31,399 - SEC_Processor - INFO - Completed all batches. Total files processed: 0
+2025-03-21 00:13:31,401 - SEC_Processor - INFO - Saving data for 0 companies
+2025-03-21 00:13:31,401 - SEC_Processor - INFO - Saved data for 0 companies
+2025-03-21 00:13:31,401 - SEC_Processor - INFO - Creating consolidated metrics files
+2025-03-21 00:13:31,402 - SEC_Processor - INFO - Saved metrics statistics
+2025-03-21 00:13:31,402 - SEC_Processor - INFO - Completed SEC data processing in 13.59 seconds
+2025-03-21 00:13:31,402 - SEC_Processor - INFO - Files processed: 0
+2025-03-21 00:13:31,402 - SEC_Processor - INFO - Companies saved: 0
+2025-03-21 00:13:31,402 - SEC_Processor - INFO - Annual metrics: 0, Quarterly metrics: 0

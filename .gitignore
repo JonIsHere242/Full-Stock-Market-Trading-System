@@ -1,4 +1,5 @@
 # Ignore model data and large datasets
+Data/*
 Data/ModelData/*
 Data/IndicatorData/*
 Data/PriceData/*

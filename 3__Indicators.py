@@ -19,75 +19,18 @@ from tqdm import tqdm
 from datetime import datetime, timedelta
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
-"""
-This script processes financial market data to calculate various technical indicators and saves the processed data Parquet format. It is designed to handle large datasets efficiently by utilizing multiple cores of the processor.
-
-Features:
-- Processes data files containing market data like Open, High, Low, Close, Volume, etc.
-- Calculates a comprehensive set of technical indicators including moving averages, ATR, VWAP, RSI, and apoxx 50 others.
-- Implements anomaly detection by squashing outliers and interpolating missing data.
-- Optimized for performance with multithreading and conditional execution based on processor core count.
-- Robust error handling and logging to track process efficiency and diagnose issues.
-- Flexibility in processing multiple files from a specified directory and saving them in a desired format.
-
-Usage:
-- The script reads market data files from a specified input directory, processes each file to compute various indicators, and writes the enhanced data to an output directory.
-- The file format is preserved during the process.
-- Log information about the process, including processing time and any encountered errors, is saved in a log file.
-- It can be customized for different sets of indicators or processing logic based on specific needs.
-
-Example:
-- To process all files in the 'Data/PriceData' directory and save the processed files in the 'Data/IndicatorData' directory, simply run the script. The process is automated and requires no additional command-line arguments.
-
-Notes:
-- Ensure that the input directory contains valid market data files in supported formats.
-- Modify the CONFIG dictionary to specify paths for input/output directories and log file.
-- The script utilizes multithreading for faster processing, making it suitable for large datasets.
-- Check the log file for detailed information about the processing time and potential errors.
-"""
+from Util import get_logger
 
 
-def setup_logging():
-    """Set up logging configuration."""
-    log_file = CONFIG['log_file']
-    log_dir = os.path.dirname(log_file)
-    
-    # Create the log directory if it doesn't exist
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
-    
-    # Get the root logger
-    logger = logging.getLogger()
-    if len(logger.handlers) == 0:
-        # Set the logging level for the logger
-        logger.setLevel(logging.INFO)
-        
-        # Create a file handler that logs to the specified file
-        file_handler = logging.FileHandler(log_file)
-        file_handler.setLevel(logging.INFO)
-    
-        # Create a formatter and set it for the handlers
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        file_handler.setFormatter(formatter)
-    
-        # Add the file handler to the logger
-        logger.addHandler(file_handler)
-    
-    return logger
-
-
+logger = get_logger(script_name="3__Indicators")
 
 
 CONFIG = {
     'input_directory': 'Data/PriceData',
     'output_directory': 'Data/IndicatorData',
-    'log_file': os.path.join('Data', 'logging', '3__Indicators.log'),  # Use os.path.join for compatibility
     'log_lines_to_read': 500,
     'core_count_division': True,
 }
-
-logger = setup_logging()
 
 
 ##===========================(Indicators)===========================##
@@ -164,20 +107,48 @@ def find_levels(df, window_size):
     return df
 
 
-def detect_peaks_and_valleys(df, column_name, prominence=1):
+
+
+def detect_peaks_and_valleys(df, column_name, prominence=1, lookback_window=50):
+    """
+    Detects peaks and valleys in a time series without future data leakage.
+    Only uses data available up to each point in time (historical data).
+    
+    Parameters:
+    - df: DataFrame containing the time series data
+    - column_name: Name of the column to analyze for peaks/valleys
+    - prominence: Minimum prominence of peaks to detect
+    - lookback_window: Number of historical periods to consider for peak detection
+    """
     peaks_column = column_name + '_Peaks'
     valleys_column = column_name + '_Valleys'
     
+    # Initialize columns with NaN
     df[peaks_column] = np.nan
     df[valleys_column] = np.nan
-
-    peaks, properties = find_peaks(df[column_name], prominence=prominence)
-    df.loc[peaks, peaks_column] = df[column_name][peaks]
-
-    valleys, properties = find_peaks(-df[column_name], prominence=prominence)
-    df.loc[valleys, valleys_column] = df[column_name][valleys]
-
+    
+    # Iterate through the dataframe starting from the minimum required history
+    for i in range(lookback_window, len(df)):
+        # Get historical window up to current point (no future data)
+        historical_window = df[column_name].iloc[i-lookback_window:i+1].values
+        
+        # Detect peaks using only historical data
+        peaks, _ = find_peaks(historical_window, prominence=prominence)
+        
+        # Check if the current point is a peak in its historical context
+        if len(peaks) > 0 and peaks[-1] == lookback_window:  # Current point is at position 'lookback_window' in the window
+            df.loc[df.index[i], peaks_column] = df[column_name].iloc[i]
+        
+        # Detect valleys using only historical data
+        valleys, _ = find_peaks(-historical_window, prominence=prominence)
+        
+        # Check if the current point is a valley in its historical context
+        if len(valleys) > 0 and valleys[-1] == lookback_window:  # Current point is at position 'lookback_window' in the window
+            df.loc[df.index[i], valleys_column] = df[column_name].iloc[i]
+    
     return df
+
+
 
 
 
@@ -606,37 +577,42 @@ def add_rolling_lzc(df, window_size=50, bin_size=1):
     return df
 
 
-
 def calculate_poc_and_metrics(data, window_size=70):
-    @njit
+    @njit(fastmath=True)
     def find_poc(prices, volumes):
-        volume_by_price = {}
-        for price, volume in zip(prices, volumes):
-            if price in volume_by_price:
-                volume_by_price[price] += volume
-            else:
-                volume_by_price[price] = volume
-        max_volume = -1
-        poc = -1
-        for price, volume in volume_by_price.items():
-            if volume > max_volume:
-                max_volume = volume
-                poc = price
-        return poc
+        unique_prices = np.unique(prices)
+        volume_by_price = np.zeros(len(unique_prices))
+        
+        for i in range(len(prices)):
+            for j in range(len(unique_prices)):
+                if prices[i] == unique_prices[j]:
+                    volume_by_price[j] += volumes[i]
+        
+        max_volume_idx = np.argmax(volume_by_price)
+        return unique_prices[max_volume_idx]
 
-    def calculate_poc_rolling(local_data):
-        poc_values = []
-        dates = []
-        for i in range(len(local_data) - window_size + 1):
-            window = local_data.iloc[i:i + window_size]
-            prices = window['Close'].values
-            volumes = window['Volume'].values
-            poc = find_poc(prices, volumes)
-            poc_values.append(poc)
-            dates.append(window['Date'].iloc[-1])
-        return pd.DataFrame({'Date': dates, 'PoC': poc_values})
+    @njit(fastmath=True)
+    def calculate_poc_rolling(prices, volumes, dates, window_size):
+        n = len(prices)
+        poc_values = np.empty(n - window_size + 1)
+        poc_dates = np.empty(n - window_size + 1, dtype=np.int64)
+        
+        for i in range(n - window_size + 1):
+            window_prices = prices[i:i + window_size]
+            window_volumes = volumes[i:i + window_size]
+            poc = find_poc(window_prices, window_volumes)
+            poc_values[i] = poc
+            poc_dates[i] = dates[i + window_size - 1]
+        
+        return poc_values, poc_dates
 
-    poc_df = calculate_poc_rolling(data)
+    close_prices = data['Close'].values
+    volumes = data['Volume'].values
+    dates = data['Date'].astype(np.int64).values
+
+    poc_values, result_dates = calculate_poc_rolling(close_prices, volumes, dates, window_size)
+
+    poc_df = pd.DataFrame({'Date': pd.to_datetime(result_dates), 'PoC': poc_values})
     data = pd.merge(data, poc_df, on='Date', how='left')
 
     if 'PoC' in data.columns:
@@ -912,87 +888,112 @@ def calculate_genetic_indicators(df):
 
 
 
-
-
 def calculate_kalman_support_resistance(df, window=140):
-    """Calculate Kalman filter and support/resistance levels in a non-fragmented way"""
+    """Calculate Kalman filter and support/resistance levels without data leakage"""
     try:
-        # Initialize Kalman filter
-        kf = KalmanFilter(
-            transition_matrices=[1],
-            observation_matrices=[1],
-            initial_state_mean=df['Close'].values[0],
-            initial_state_covariance=1,
-            observation_covariance=1,
-            transition_covariance=.01
-        )
+        n = len(df)
+        close_prices = df['Close'].values
         
-        # Calculate all values first
-        kalman_values = kf.filter(df['Close'].values)[0].flatten()  # Flatten the output array
+        # Pre-allocate arrays
+        kalman_values = np.full(n, np.nan)
+        minima_values = np.full(n, np.nan)
+        maxima_values = np.full(n, np.nan)
+        support_pct = np.full(n, np.nan)
+        resistance_pct = np.full(n, np.nan)
         
-        # Find extrema indices
-        minima_idx = argrelextrema(kalman_values, np.less_equal, order=window)[0]
-        maxima_idx = argrelextrema(kalman_values, np.greater_equal, order=window)[0]
+        # Initialize Kalman filter parameters
+        transition_matrix = np.array([[1]])
+        observation_matrix = np.array([[1]])
+        transition_covariance = np.array([[0.01]])
+        observation_covariance = np.array([[1]])
+        initial_state_mean = close_prices[0]
+        initial_state_covariance = np.array([[1]])
         
-        # Create arrays of NaN with same length as df
-        minima_values = np.full(len(df), np.nan)
-        maxima_values = np.full(len(df), np.nan)
+        # Incrementally calculate Kalman filter values
+        current_state_mean = initial_state_mean
+        current_state_covariance = initial_state_covariance
         
-        # Fill in the extrema values safely
-        if len(minima_idx) > 0:
-            minima_values[minima_idx] = kalman_values[minima_idx]
-        if len(maxima_idx) > 0:
-            maxima_values[maxima_idx] = kalman_values[maxima_idx]
-        
-        # Forward fill the values
-        minima_values = pd.Series(minima_values).ffill().values
-        maxima_values = pd.Series(maxima_values).ffill().values
-        
-        # Calculate support and resistance percentages safely
-        with np.errstate(divide='ignore', invalid='ignore'):
-            support_pct = np.where(
-                minima_values > 0,
-                (df['Close'].values - minima_values) / minima_values * 100,
-                np.nan
+        for i in range(n):
+            # Prediction step
+            predicted_state_mean = np.dot(transition_matrix, current_state_mean)
+            predicted_state_covariance = np.dot(np.dot(transition_matrix, current_state_covariance), transition_matrix.T) + transition_covariance
+            
+            # Update step with current observation
+            kalman_gain = np.dot(
+                np.dot(predicted_state_covariance, observation_matrix.T),
+                np.linalg.inv(np.dot(np.dot(observation_matrix, predicted_state_covariance), observation_matrix.T) + observation_covariance)
             )
-            resistance_pct = np.where(
-                df['Close'].values > 0,
-                (maxima_values - df['Close'].values) / df['Close'].values * 100,
-                np.nan
-            )
+            
+            current_state_mean = predicted_state_mean + np.dot(kalman_gain, (close_prices[i] - np.dot(observation_matrix, predicted_state_mean)))
+            current_state_covariance = predicted_state_covariance - np.dot(np.dot(kalman_gain, observation_matrix), predicted_state_covariance)
+            
+            # Store the current filtered value
+            kalman_values[i] = current_state_mean[0]
         
-        # Handle conversion window
-        conversion_window = 5
-        for i in range(conversion_window, len(df)):
-            if all(kalman_values[i-conversion_window:i+1] > maxima_values[i]):
-                minima_values[i] = maxima_values[i]
-                maxima_values[i] = np.nan
-            if all(kalman_values[i-conversion_window:i+1] < minima_values[i]):
-                maxima_values[i] = minima_values[i]
-                minima_values[i] = np.nan
+        # Now compute extrema and percentages
+        min_data_points = 20
+        for i in range(min_data_points, n):
+            # Use only lookback window for extrema detection
+            lookback = min(window, i)
+            lookback_start = max(0, i - lookback + 1)
+            historical_window = kalman_values[lookback_start:i+1]
+            
+            # Find local minima/maxima in historical window
+            if len(historical_window) >= 3:
+                min_indices = argrelextrema(historical_window, np.less_equal, order=1)[0]
+                max_indices = argrelextrema(historical_window, np.greater_equal, order=1)[0]
+                
+                # Process minima
+                if len(min_indices) > 0:
+                    most_recent_min_idx = min_indices[-1] + lookback_start
+                    if most_recent_min_idx < i:
+                        minima_values[i] = kalman_values[most_recent_min_idx]
+                    elif i > 0:
+                        minima_values[i] = minima_values[i-1]
+                elif i > 0:
+                    minima_values[i] = minima_values[i-1]
+                
+                # Process maxima
+                if len(max_indices) > 0:
+                    most_recent_max_idx = max_indices[-1] + lookback_start
+                    if most_recent_max_idx < i:
+                        maxima_values[i] = kalman_values[most_recent_max_idx]
+                    elif i > 0:
+                        maxima_values[i] = maxima_values[i-1]
+                elif i > 0:
+                    maxima_values[i] = maxima_values[i-1]
+            elif i > 0:
+                minima_values[i] = minima_values[i-1]
+                maxima_values[i] = maxima_values[i-1]
+            
+            # Calculate percentages
+            if not np.isnan(minima_values[i]) and minima_values[i] > 0:
+                support_pct[i] = (close_prices[i] - minima_values[i]) / minima_values[i] * 100
+                
+            if not np.isnan(maxima_values[i]) and close_prices[i] > 0:
+                resistance_pct[i] = (maxima_values[i] - close_prices[i]) / close_prices[i] * 100
         
-        # Create new DataFrame with the calculated values
-        new_columns = {
+        # Create the result dataframe
+        result_df = pd.DataFrame({
             'Kalman': kalman_values,
             'minima': minima_values,
             'maxima': maxima_values,
             'Distance to Support (%)': support_pct,
             'Distance to Resistance (%)': resistance_pct
-        }
+        }, index=df.index)
         
-        return pd.DataFrame(new_columns, index=df.index)
+        return result_df
     
     except Exception as e:
         logging.error(f"Error in calculate_kalman_support_resistance: {str(e)}")
         # Return empty DataFrame with expected columns if calculation fails
         return pd.DataFrame({
-            'Kalman': np.full(len(df), np.nan),
-            'minima': np.full(len(df), np.nan),
-            'maxima': np.full(len(df), np.nan),
-            'Distance to Support (%)': np.full(len(df), np.nan),
-            'Distance to Resistance (%)': np.full(len(df), np.nan)
+            'Kalman': np.full(n, np.nan),
+            'minima': np.full(n, np.nan),
+            'maxima': np.full(n, np.nan),
+            'Distance to Support (%)': np.full(n, np.nan),
+            'Distance to Resistance (%)': np.full(n, np.nan)
         }, index=df.index)
-
 
 
 
@@ -1280,7 +1281,6 @@ def DataQualityCheck(df, all_dfs=None):
     end_mean = df['Close'].tail(sample_size).mean()
 
     if start_mean > 3000 or (start_mean / max(end_mean, 1e-10) > 20):
-        logging.error(f"Signs of reverse stock splits detected or high initial prices: Start mean: {start_mean}, End mean: {end_mean}")
         return None
 
     return df
@@ -1427,7 +1427,6 @@ def process_data_files(run_percent):
 
 
 if __name__ == "__main__":
-    logger = setup_logging()
     logger.info("Starting the process...")
     parser = argparse.ArgumentParser(description="Process financial market data files.")
     parser.add_argument('--runpercent', type=int, default=100, help="Percentage of files to process from the input directory.")

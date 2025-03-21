@@ -1,0 +1,21 @@
+2025-03-17 19:08:38,513 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 19:08:39,939 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 19:08:39,947 - werkzeug - INFO -  * Debugger PIN: 128-642-740
+2025-03-17 19:08:46,243 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\flask\\app.py', reloading
+2025-03-17 19:08:46,243 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\flask\\templating.py', reloading
+2025-03-17 19:08:46,244 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\jinja2\\environment.py', reloading
+2025-03-17 19:08:46,245 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\jinja2\\loaders.py', reloading
+2025-03-17 19:08:47,159 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 19:08:48,563 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 19:08:48,571 - werkzeug - INFO -  * Debugger PIN: 128-642-740
+2025-03-17 19:10:09,154 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\flask\\__init__.py', reloading
+2025-03-17 19:10:09,200 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\flask\\sansio\\app.py', reloading
+2025-03-17 19:10:09,220 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\flask\\sansio\\scaffold.py', reloading
+2025-03-17 19:10:09,243 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\jinja2\\__init__.py', reloading
+2025-03-17 19:10:09,279 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Masam\\miniconda3\\envs\\tf\\Lib\\site-packages\\flask\\json\\__init__.py', reloading
+2025-03-17 19:10:09,476 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 19:10:10,932 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 19:10:10,939 - werkzeug - INFO -  * Debugger PIN: 128-642-740
+2025-03-17 19:36:47,875 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-03-17 19:36:49,262 - werkzeug - WARNING -  * Debugger is active!
+2025-03-17 19:36:49,269 - werkzeug - INFO -  * Debugger PIN: 128-642-740

@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Sniper Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Plotly.js for charts -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Socket.IO for real-time updates -->
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-panel: #1a1a1a;
+            --text-light: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #3a7ca5;
+            --accent-green: #2e7d32;
+            --accent-red: #c62828;
+            --accent-yellow: #f9a825;
+            --border-color: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            height: 48px;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            padding: 0;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent-green);
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+            background-color: var(--bg-panel);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .metric-card {
+            background-color: var(--bg-card);
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 12px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .text-profit {
+            color: var(--accent-green);
+        }
+        
+        .text-loss {
+            color: var(--accent-red);
+        }
+        
+        .table {
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+        
+        .table thead th {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(0, 0, 0, 0.2);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.5rem;
+        }
+        
+        .table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .table tbody td {
+            padding: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: rgba(216, 216, 216, 0.233);
+        }
+        
+        .btn-kill {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            border-radius: 3px;
+        }
+        
+        .btn-kill:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+        }
+        
+        .refresh-btn {
+            color: var(--text-secondary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0.25rem;
+        }
+        
+        .refresh-btn:hover {
+            color: var(--text-light);
+        }
+        
+        .news-item {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-time {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .dashboard-status {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid var(--border-color);
+            padding: 6px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            font-size: 0.8rem;
+        }
+        
+        .status-pill {
+            border-radius: 12px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background-color: var(--accent-green);
+        }
+        
+        .status-closed {
+            background-color: var(--accent-red);
+        }
+        
+        /* Loading spinner */
+        .loader {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top: 3px solid var(--accent-blue);
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Toast notifications */
+        .toast-container {
+            position: fixed;
+            top: 60px;
+            right: 15px;
+            z-index: 1000;
+        }
+        
+        .toast {
+            background-color: var(--bg-card);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            max-width: 300px;
+        }
+        
+        .toast-header {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        /* Auto-refresh indicator */
+        .auto-refresh-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Content area with footer spacing */
+        .content-container {
+            padding-bottom: 40px; /* Space for footer */
+        }
+        
+        /* Stock Sniper branding */
+        .branding {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            z-index: 101;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .metric-card {
+                margin-bottom: 8px;
+                height: 70px;
+            }
+            
+            .card {
+                margin-bottom: 10px;
+            }
+            
+            .metric-value {
+                font-size: 1.3rem;
+            }
+            
+            .branding {
+                display: none;
+            }
+        }
+        
+        .metric-card {
+            height: 70px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: var(--bg-card);
+            transition: all 0.2s ease;
+        }
+
+        .metric-card:hover {
+            background-color: var(--bg-panel);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style for collapsible section buttons */
+        .collapse-section-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .collapse-section-btn:hover {
+            color: var(--text-light);
+        }
+
+        /* Chart containers */
+        .chart-container {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+        }
+
+        /* Make tabs more visible in dark theme */
+        .nav-tabs .nav-link {
+            color: var(--text-secondary);
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            margin-right: 2px;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--text-light);
+            background-color: var(--bg-dark);
+            border-bottom-color: var(--bg-dark);
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: var(--text-light);
+            border-color: var(--border-color);
+        }
+
+        /* Refresh buttons */
+        .btn-outline-light {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Better table scrolling */
+        .table-responsive {
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) var(--bg-card);
+        }
+
+        .table-responsive::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .table-responsive::-webkit-scrollbar-track {
+            background: var(--bg-card);
+        }
+
+        .table-responsive::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 4px;
+        }
+
+
+
+        #all-charts .row {
+            margin: 0 -5px;
+        }
+
+        #all-charts .col-md-6 {
+            padding: 2px;
+        }
+
+        /* Maximize chart area in both views */
+        .chart-container {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100% !important;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <div class="status-pill status-active me-2" id="market-status">Market Closed</div>
+                <span class="auto-refresh-indicator" id="refresh-indicator" title="Auto-refreshing data"></span>
+            </div>
+            
+            <div class="d-flex align-items-center">
+                <button class="btn btn-sm btn-outline-light me-2" id="refresh-all-btn">
+                    <i class="fas fa-sync-alt"></i> Refresh All
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container"></div>
+    <div class="container-fluid mt-3 content-container">
+        <div class="row">
+            <!-- Left Side: Charts Area -->
+            <div class="col-md-8">
+                <!-- Multi-chart area with tabs -->
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="chart-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="all-charts-tab" data-bs-toggle="tab" data-bs-target="#all-charts" type="button" role="tab">All Charts</button>
+                            </li>
+                            <!-- Dynamic tabs for each position will be added here -->
+                        </ul>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="tab-content" id="chart-tabs-content">
+                            <div class="tab-pane fade show active" id="all-charts" role="tabpanel">
+                                <div class="row p-2">
+                                    <!-- Grid of 4 small charts, one for each position -->
+                                    <div class="col-md-6 mb-3">
+                                        <div id="chart-position-1" class="chart-container" style="height: 250px;"></div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div id="chart-position-2" class="chart-container" style="height: 250px;"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="chart-position-3" class="chart-container" style="height: 250px;"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="chart-position-4" class="chart-container" style="height: 250px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Individual position tabs will be added here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Active Positions Table -->
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>Active Positions</div>
+                        <div>
+                            <button class="btn-sm btn-outline-light me-2" id="refresh-positions-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="collapse-section-btn" data-target="active-positions-body">
+                                <i class="fas fa-chevron-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" id="active-positions-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Symbol</th>
+                                        <th>Entry Date</th>
+                                        <th>Entry Price</th>
+                                        <th>Size</th>
+                                        <th>Up Prob.</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="active-positions-tbody">
+                                    <tr>
+                                        <td colspan="6" class="text-center">Loading positions...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side: Metrics and Analytics -->
+            <div class="col-md-4">
+                <!-- Performance Metrics Card -->
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>Performance Metrics</div>
+                        <button class="collapse-section-btn" data-target="metrics-body">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                    </div>
+                    <div class="card-body" id="metrics-body">
+                        <div class="row">
+                            <!-- Total P&L -->
+                            <div class="col-6 mb-3">
+                                <div class="metric-card">
+                                    <div class="metric-label">Total P&L</div>
+                                    <div class="metric-value" id="total-pnl">$0.00</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Win Rate -->
+                            <div class="col-6 mb-3">
+                                <div class="metric-card">
+                                    <div class="metric-label">Win Rate</div>
+                                    <div class="metric-value" id="win-rate">0%</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Average Win -->
+                            <div class="col-6 mb-3">
+                                <div class="metric-card">
+                                    <div class="metric-label">Average Win</div>
+                                    <div class="metric-value text-profit" id="avg-win">$0.00</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Average Loss -->
+                            <div class="col-6 mb-3">
+                                <div class="metric-card">
+                                    <div class="metric-label">Average Loss</div>
+                                    <div class="metric-value text-loss" id="avg-loss">$0.00</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Total Trades -->
+                            <div class="col-6">
+                                <div class="metric-card">
+                                    <div class="metric-label">Total Trades</div>
+                                    <div class="metric-value" id="total-trades">0</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Active Positions -->
+                            <div class="col-6">
+                                <div class="metric-card">
+                                    <div class="metric-label">Active Positions</div>
+                                    <div class="metric-value" id="active-positions">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Chart -->
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>Performance Chart</div>
+                        <div>
+                            <button class="btn-sm btn-outline-light me-2" id="refresh-performance-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="collapse-section-btn" data-target="performance-body">
+                                <i class="fas fa-chevron-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" id="performance-body">
+                        <div id="performance-chart" class="chart-container" style="height: 300px;"></div>
+                    </div>
+                </div>
+                
+                <!-- Probability Distribution -->
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>Up Probability Distribution</div>
+                        <div>
+                            <button class="btn-sm btn-outline-light me-2" id="refresh-probability-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="collapse-section-btn" data-target="probability-body">
+                                <i class="fas fa-chevron-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" id="probability-body">
+                        <div id="probability-chart" class="chart-container" style="height: 300px;"></div>
+                    </div>
+                </div>
+                
+                <!-- Trade History -->
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div>Trade History</div>
+                        <div>
+                            <button class="btn-sm btn-outline-light me-2" id="refresh-history-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="collapse-section-btn" data-target="history-body">
+                                <i class="fas fa-chevron-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" id="history-body">
+                        <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Symbol</th>
+                                        <th>Entry Date</th>
+                                        <th>Exit Date</th>
+                                        <th>P&L</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trade-history-tbody">
+                                    <tr>
+                                        <td colspan="4" class="text-center">Loading history...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Status Footer -->
+    <div class="dashboard-status">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <span id="dashboard-timestamp">Last updated: March 17, 2025 00:07</span>
+                </div>
+                <div class="col-auto ms-auto">
+                    <span id="system-status">System Status: <span class="status-pill status-active">Monitoring</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- StockSniper Branding -->
+    <div class="branding">
+        Stock<span style="color: #2e7d32;">Sniper</span> Dashboard
+    </div>
+
+    <!-- Kill Position Modal -->
+    <div class="modal fade" id="killPositionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title">Emergency Exit</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Exit position for <strong id="kill-symbol">SYMBOL</strong> immediately?</p>
+                    <p class="text-danger small">
+                        <i class="fas fa-exclamation-triangle"></i> 
+                        This will send a market order regardless of current price.
+                    </p>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-kill" id="confirm-kill-btn">
+                        <i class="fas fa-radiation"></i> Confirm Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Symbol Search Form -->
+    <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="symbolSearchOffcanvas" aria-labelledby="symbolSearchOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="symbolSearchOffcanvasLabel">Search Symbol</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="mb-3">
+                <label for="symbol-search" class="form-label">Enter Symbol</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="symbol-search" placeholder="e.g. AAPL" list="symbol-list">
+                    <datalist id="symbol-list"></datalist>
+                    <button class="btn btn-outline-light" type="button" id="load-symbol-btn">Load</button>
+                </div>
+                <div class="form-text text-light-50">Available symbols will appear as you type</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <!-- Main Dashboard JS -->
+    <script>
+        // Initialize Socket.IO
+        const socket = io();
+
+        // Global variables
+        let activeTrades = [];
+        let tradeHistory = [];
+        let metrics = {};
+        let currentSymbol = '';
+        let refreshEnabled = true;
+        let autoPause = false;
+
+        // DOM Elements
+        const symbolSearch = document.getElementById('symbol-search');
+        const performanceChart = document.getElementById('performance-chart');
+        const probabilityChart = document.getElementById('probability-chart');
+        const activePositionsTbody = document.getElementById('active-positions-tbody');
+        const tradeHistoryTbody = document.getElementById('trade-history-tbody');
+        const killPositionModal = new bootstrap.Modal(document.getElementById('killPositionModal'));
+        const killSymbolEl = document.getElementById('kill-symbol');
+        const confirmKillBtn = document.getElementById('confirm-kill-btn');
+        const refreshIndicator = document.getElementById('refresh-indicator');
+        const marketStatus = document.getElementById('market-status');
+
+        // Initialize the dashboard
+        $(document).ready(function() {
+            // Setup collapsible sections
+            setupCollapsibleSections();
+
+            updateDashboardTimestamp();
+            checkMarketStatus();
+
+            // Initial data load
+            loadActiveTrades();
+            loadTradeHistory();
+            loadMetrics();
+            loadPerformanceChart();
+            loadProbabilityChart();
+            loadAvailableSymbols();
+
+            // Set up refresh button handlers
+            $('#refresh-all-btn').click(function() {
+                refreshAll(true);
+            });
+
+            $('#refresh-positions-btn').click(function() {
+                loadActiveTrades(true);
+            });
+
+            $('#refresh-history-btn').click(function() {
+                loadTradeHistory(true);
+            });
+
+            $('#refresh-performance-btn').click(function() {
+                loadPerformanceChart(true);
+            });
+
+            $('#refresh-probability-btn').click(function() {
+                loadProbabilityChart(true);
+            });
+
+            // Load symbol button click handler
+            $('#load-symbol-btn').click(function() {
+                const symbol = symbolSearch.value.trim().toUpperCase();
+                if (symbol) {
+                    currentSymbol = symbol;
+                    loadChartForSymbol(symbol, true);
+                }
+            });
+
+            // Symbol search enter key handler
+            $('#symbol-search').on('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const symbol = this.value.trim().toUpperCase();
+                    if (symbol) {
+                        currentSymbol = symbol;
+                        loadChartForSymbol(symbol, true);
+                    }
+                }
+            });
+
+            // Kill position confirmation handler
+            confirmKillBtn.addEventListener('click', function() {
+                const symbol = killSymbolEl.textContent;
+                killPosition(symbol);
+                killPositionModal.hide();
+            });
+
+            // Socket.IO event handlers
+            socket.on('connect', function() {
+                console.log('Connected to server');
+                showToast('Connection', 'Connected to server', 'success');
+            });
+
+            socket.on('disconnect', function() {
+                console.log('Disconnected from server');
+                showToast('Connection', 'Disconnected from server', 'danger');
+                refreshIndicator.style.backgroundColor = 'var(--accent-red)';
+            });
+
+            socket.on('position_killed', function(data) {
+                showToast('Emergency Exit', `Position for ${data.symbol} has been closed`, 'danger');
+                loadActiveTrades(true);
+                loadMetrics(true);
+            });
+
+            socket.on('data_refreshed', function(data) {
+                console.log('Data refreshed', data);
+                if (!autoPause) {
+                    refreshAllQuietly();
+                }
+                updateDashboardTimestamp(data.timestamp);
+                refreshIndicator.style.backgroundColor = 'var(--accent-green)';
+            });
+
+            // Auto-refresh toggle
+            refreshIndicator.addEventListener('click', function() {
+                autoPause = !autoPause;
+                if (autoPause) {
+                    refreshIndicator.style.backgroundColor = 'var(--accent-yellow)';
+                    showToast('Auto-refresh', 'Auto-refresh paused', 'warning');
+                } else {
+                    refreshIndicator.style.backgroundColor = 'var(--accent-green)';
+                    showToast('Auto-refresh', 'Auto-refresh resumed', 'success');
+                    refreshAllQuietly();
+                }
+            });
+        });
+
+        // Setup collapsible sections properly
+        function setupCollapsibleSections() {
+            document.querySelectorAll('.collapse-section-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+
+                    if (!targetElement) {
+                        console.error(`Target element with ID ${targetId} not found`);
+                        return;
+                    }
+
+                    // Get the computed style to check if it's actually displayed
+                    const computedStyle = window.getComputedStyle(targetElement);
+
+                    if (computedStyle.display === 'none') {
+                        // Expand
+                        targetElement.style.display = 'block';
+                        this.querySelector('i').classList.remove('fa-chevron-down');
+                        this.querySelector('i').classList.add('fa-chevron-up');
+                    } else {
+                        // Collapse
+                        targetElement.style.display = 'none';
+                        this.querySelector('i').classList.remove('fa-chevron-up');
+                        this.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        }
+
+        // Function to load available symbols for search
+        function loadAvailableSymbols() {
+            fetch('/api/available_symbols')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(symbols => {
+                    const symbolList = document.getElementById('symbol-list');
+                    symbolList.innerHTML = '';
+                
+                    symbols.forEach(symbol => {
+                        const option = document.createElement('option');
+                        option.value = symbol;
+                        symbolList.appendChild(option);
+                    });
+                
+                    console.log(`Loaded ${symbols.length} symbols for search`);
+                })
+                .catch(error => {
+                    console.error('Error loading symbols:', error);
+                    showToast('Error', 'Failed to load available symbols', 'danger');
+                });
+        }
+
+        // Function to load charts for a given symbol in all relevant chart containers
+        function loadChartForSymbol(symbol, forceRefresh = false) {
+            // First, try to load the individual chart if it exists
+            const individualChartContainer = document.getElementById(`chart-${symbol}`);
+            if (individualChartContainer) {
+                loadStockChart(symbol, forceRefresh, `chart-${symbol}`);
+            }
+
+            // Then, update the multi-chart view
+            const foundPosition = activeTrades.findIndex(trade => trade.Symbol === symbol);
+            if (foundPosition !== -1) {
+                const positionChartIndex = foundPosition % 4 + 1; // Cycle between positions 1-4
+                const positionChartContainer = document.getElementById(`chart-position-${positionChartIndex}`);
+                if (positionChartContainer) {
+                    loadStockChart(symbol, forceRefresh, `chart-position-${positionChartIndex}`);
+                }
+            }
+
+            // Update the tab to show this symbol if it exists
+            const symbolTab = document.getElementById(`${symbol}-tab`);
+            if (symbolTab) {
+                const tab = new bootstrap.Tab(symbolTab);
+                tab.show();
+            }
+        }
+
+        // Function to refresh all data
+        function refreshAll(showNotification = true) {
+            loadActiveTrades(true);
+            loadTradeHistory(true);
+            loadMetrics(true);
+            loadPerformanceChart(true);
+            loadProbabilityChart(true);
+
+            if (currentSymbol) {
+                loadChartForSymbol(currentSymbol, true);
+            }
+
+            if (showNotification) {
+                showToast('Refresh', 'All data refreshed', 'info');
+            }
+        }
+
+        // Quiet refresh (no notifications)
+        function refreshAllQuietly() {
+            refreshAll(false);
+        }
+
+        // Function to load active trades
+        function loadActiveTrades(forceRefresh = false) {
+            showLoader(activePositionsTbody);
+        
+            fetch(`/api/active_trades?force=${forceRefresh}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Active trades data:", data);
+                    activeTrades = data;
+                    renderActiveTrades();
+                    setupMultiChartView(activeTrades.map(trade => trade.Symbol));
+
+                    // If we have trades but no current symbol selected, select the first one
+                    if (activeTrades.length > 0 && (!currentSymbol || currentSymbol === '')) {
+                        currentSymbol = activeTrades[0].Symbol;
+                        symbolSearch.value = currentSymbol;
+                        loadChartForSymbol(currentSymbol);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading active trades:', error);
+                    showToast('Error', 'Failed to load active positions', 'danger');
+                    activePositionsTbody.innerHTML = `<tr><td colspan="6" class="text-center text-danger">Error loading positions: ${error.message}</td></tr>`;
+                });
+        }
+
+        // Function to load trade history
+        function loadTradeHistory(forceRefresh = false) {
+            showLoader(tradeHistoryTbody);
+
+            fetch(`/api/trade_history?force=${forceRefresh}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    tradeHistory = data;
+                    renderTradeHistory();
+                })
+                .catch(error => {
+                    console.error('Error loading trade history:', error);
+                    showToast('Error', 'Failed to load trade history', 'danger');
+                    tradeHistoryTbody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Error loading history</td></tr>`;
+                });
+        }
+
+        // Function to load performance metrics
+        function loadMetrics(forceRefresh = false) {
+            fetch(`/api/metrics?force=${forceRefresh}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    metrics = data;
+                    renderMetrics();
+                })
+                .catch(error => {
+                    console.error('Error loading metrics:', error);
+                    showToast('Error', 'Failed to load performance metrics', 'danger');
+                });
+        }
+
+        // Function to load stock chart for a symbol
+        function loadStockChart(symbol, forceRefresh = false, containerId) {
+            const chartContainer = document.getElementById(containerId);
+            if (!chartContainer) {
+                console.error(`Chart container with ID ${containerId} not found`);
+                return;
+            }
+        
+            showLoader(chartContainer);
+        
+            fetch(`/api/charts/price/${symbol}?force=${forceRefresh}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    removeLoader(chartContainer);
+                
+                    // Add a title if it's a position chart
+                    if (containerId.startsWith('chart-position-')) {
+                        // Clear previous content first
+                        chartContainer.innerHTML = `<h6 class="text-center mb-2">${symbol}</h6>`;
+
+                        // Create a div for the chart
+                        const chartDiv = document.createElement('div');
+                        data.layout.width = null; // This forces the chart to use 100% of container width
+                        data.layout.autosize = true;
+                        
+                        chartContainer.appendChild(chartDiv);
+
+                        // Modify layout for smaller charts
+                        data.layout.height = 220;
+                        data.layout.margin = {l: 40, r: 40, t: 10, b: 30};
+                        data.layout.showlegend = false;
+                        if (data.layout.yaxis) data.layout.yaxis.title = null;
+                        if (data.layout.yaxis2) data.layout.yaxis2.title = null;
+                        if (data.layout.xaxis) data.layout.xaxis.title = null;
+
+                        Plotly.newPlot(chartDiv, data.data, data.layout);
+                    } else {
+                        Plotly.newPlot(chartContainer, data.data, data.layout);
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error loading chart for ${symbol} in ${containerId}:`, error);
+                    chartContainer.innerHTML = `<div class="text-center text-danger">Error loading chart for ${symbol}: ${error.message}</div>`;
+                });
+        }
+
+
+
+
+
+        
+        function setupMultiChartView(symbols) {
+            // Clear existing tabs
+            const tabsContainer = document.getElementById('chart-tabs');
+            const tabsContent = document.getElementById('chart-tabs-content');
+        
+            // Keep the first tab (All Charts)
+            while (tabsContainer.children.length > 1) {
+                tabsContainer.removeChild(tabsContainer.lastChild);
+            }
+        
+            // Keep the first tab pane (All Charts)
+            const tabPanes = tabsContent.querySelectorAll('.tab-pane');
+            for (let i = 1; i < tabPanes.length; i++) {
+                tabsContent.removeChild(tabPanes[i]);
+            }
+        
+            // Only process up to 4 charts for the multi-view
+            const displaySymbols = symbols.slice(0, 4);
+
+            // Improve the All Charts view
+            const allChartsPane = document.getElementById('all-charts');
+            if (allChartsPane) {
+                // Clear previous content
+                allChartsPane.innerHTML = '';
+
+                // Create a more compact row
+                const row = document.createElement('div');
+                row.className = 'row p-0 m-0';
+                allChartsPane.appendChild(row);
+
+                // Create grid of charts
+                displaySymbols.forEach((symbol, index) => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6 p-0 mb-1';
+                    row.appendChild(col);
+
+                    const chartContainer = document.createElement('div');
+                    chartContainer.id = `chart-position-${index + 1}`;
+                    chartContainer.className = 'chart-container';
+                    chartContainer.style.height = '250px';
+                    chartContainer.style.padding = '0';
+                    chartContainer.style.margin = '0';
+                    col.appendChild(chartContainer);
+
+                    // Load the chart
+                    loadStockChart(symbol, false, `chart-position-${index + 1}`);
+                });
+            }
+        
+            // Create tabs and individual charts for each symbol
+            symbols.forEach((symbol) => {
+                // Create tab
+                const tab = document.createElement('li');
+                tab.className = 'nav-item';
+                tab.role = 'presentation';
+                tab.innerHTML = `
+                    <button class="nav-link" id="${symbol}-tab" data-bs-toggle="tab" 
+                            data-bs-target="#${symbol}-chart-pane" type="button" role="tab">
+                        ${symbol}
+                    </button>
+                `;
+                tabsContainer.appendChild(tab);
+                
+                // Create tab content
+                const tabPane = document.createElement('div');
+                tabPane.className = 'tab-pane fade';
+                tabPane.id = `${symbol}-chart-pane`;
+                tabPane.role = 'tabpanel';
+                tabPane.innerHTML = `
+                    <div class="p-0">
+                        <div id="chart-${symbol}" class="chart-container" style="height: 500px;"></div>
+                    </div>
+                `;
+                tabsContent.appendChild(tabPane);
+                
+                // Load larger chart in individual tab
+                loadStockChart(symbol, false, `chart-${symbol}`);
+            });
+        
+            // Initialize Bootstrap tabs
+            document.querySelectorAll('#chart-tabs button').forEach(tabEl => {
+                tabEl.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    new bootstrap.Tab(tabEl).show();
+
+                    // Extract symbol from tab ID
+                    const tabId = this.id;
+                    if (tabId && tabId.endsWith('-tab')) {
+                        const symbol = tabId.substring(0, tabId.length - 4);
+                        currentSymbol = symbol;
+                        symbolSearch.value = symbol;
+                    }
+                });
+            });
+        }
+
+        // Function to load performance chart
+        function loadPerformanceChart(forceRefresh = false) {
+            showLoader(performanceChart);
+        
+            fetch(`/api/charts/performance?force=${forceRefresh}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    removeLoader(performanceChart);
+                    Plotly.newPlot(performanceChart, data.data, data.layout);
+                })
+                .catch(error => {
+                    console.error('Error loading performance chart:', error);
+                    showToast('Error', 'Failed to load performance chart', 'danger');
+                    performanceChart.innerHTML = `<div class="text-center text-danger">Error loading chart</div>`;
+                });
+        }
+
+        // Function to load probability distribution chart
+        function loadProbabilityChart(forceRefresh = false) {
+            showLoader(probabilityChart);
+
+            fetch(`/api/charts/probability?force=${forceRefresh}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    removeLoader(probabilityChart);
+                    Plotly.newPlot(probabilityChart, data.data, data.layout);
+                })
+                .catch(error => {
+                    console.error('Error loading probability chart:', error);
+                    showToast('Error', 'Failed to load probability chart', 'danger');
+                    probabilityChart.innerHTML = `<div class="text-center text-danger">Error loading chart</div>`;
+                });
+        }
+
+        // Function to render active trades
+        function renderActiveTrades() {
+            if (!activeTrades || activeTrades.length === 0) {
+                activePositionsTbody.innerHTML = `<tr><td colspan="6" class="text-center">No active positions</td></tr>`;
+                return;
+            }
+        
+            let html = '';
+            activeTrades.forEach(trade => {
+                const entryDate = formatDate(trade.LastBuySignalDate);
+                const entryPrice = formatCurrency(trade.LastBuySignalPrice);
+                const upProb = formatPercentage(trade.UpProbability);
+            
+                html += `
+                    <tr>
+                        <td>${trade.Symbol}</td>
+                        <td>${entryDate}</td>
+                        <td>${entryPrice}</td>
+                        <td>${trade.PositionSize || 'N/A'}</td>
+                        <td>${upProb}</td>
+                        <td>
+                            <button class="btn-kill kill-position-btn" data-symbol="${trade.Symbol}">
+                                <i class="fas fa-radiation"></i> Kill
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        
+            activePositionsTbody.innerHTML = html;
+        
+            // Add event listeners to kill buttons
+            document.querySelectorAll('.kill-position-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const symbol = this.getAttribute('data-symbol');
+                    showKillConfirmation(symbol);
+                });
+            });
+        }
+
+        // Function to render trade history
+        function renderTradeHistory() {
+            if (!tradeHistory || tradeHistory.length === 0) {
+                tradeHistoryTbody.innerHTML = `<tr><td colspan="4" class="text-center">No trade history</td></tr>`;
+                return;
+            }
+
+            // Filter out rows with null LastSellPrice
+            const closedTrades = tradeHistory.filter(trade => 
+                trade.LastSellPrice !== null && 
+                !isNaN(parseFloat(trade.LastSellPrice)) && 
+                trade.LastTradedDate !== null
+            );
+
+            if (closedTrades.length === 0) {
+                tradeHistoryTbody.innerHTML = `<tr><td colspan="4" class="text-center">No completed trades</td></tr>`;
+                return;
+            }
+
+            // Sort by LastTradedDate descending
+            closedTrades.sort((a, b) => {
+                if (!a.LastTradedDate) return 1;
+                if (!b.LastTradedDate) return -1;
+                return new Date(b.LastTradedDate) - new Date(a.LastTradedDate);
+            });
+
+            let html = '';
+            closedTrades.slice(0, 50).forEach(trade => {  // Limit to 50 most recent trades
+                const entryDate = formatDate(trade.LastBuySignalDate);
+                const exitDate = formatDate(trade.LastTradedDate);
+
+                // Calculate P&L
+                const pnl = (parseFloat(trade.LastSellPrice) - parseFloat(trade.LastBuySignalPrice)) * parseFloat(trade.PositionSize || 0);
+                const pnlClass = pnl >= 0 ? 'text-profit' : 'text-loss';
+
+                html += `
+                    <tr>
+                        <td>${trade.Symbol}</td>
+                        <td>${entryDate}</td>
+                        <td>${exitDate}</td>
+                        <td class="${pnlClass}">${formatCurrency(pnl)}</td>
+                    </tr>
+                `;
+            });
+
+            tradeHistoryTbody.innerHTML = html;
+        }
+
+        // Function to render metrics
+        function renderMetrics() {
+            if (!metrics) return;
+
+            document.getElementById('total-pnl').textContent = formatCurrency(metrics.total_pnl);
+            document.getElementById('win-rate').textContent = formatPercentage(metrics.win_rate / 100);
+            document.getElementById('avg-win').textContent = formatCurrency(metrics.avg_win);
+            document.getElementById('avg-loss').textContent = formatCurrency(metrics.avg_loss);
+            document.getElementById('total-trades').textContent = metrics.total_trades;
+            document.getElementById('active-positions').textContent = metrics.active_positions;
+
+            // Set classes for positive/negative P&L
+            if (metrics.total_pnl > 0) {
+                document.getElementById('total-pnl').classList.add('text-profit');
+                document.getElementById('total-pnl').classList.remove('text-loss');
+            } else if (metrics.total_pnl < 0) {
+                document.getElementById('total-pnl').classList.add('text-loss');
+                document.getElementById('total-pnl').classList.remove('text-profit');
+            } else {
+                document.getElementById('total-pnl').classList.remove('text-profit', 'text-loss');
+            }
+        }
+
+        // Function to show the kill position confirmation modal
+        function showKillConfirmation(symbol) {
+            killSymbolEl.textContent = symbol;
+            killPositionModal.show();
+        }
+
+        // Function to kill a position
+        function killPosition(symbol) {
+            fetch('/api/kill_position', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ symbol })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    showToast('Success', data.message, 'success');
+                    loadActiveTrades(true);
+                    loadMetrics(true);
+                } else {
+                    showToast('Error', data.error, 'danger');
+                }
+            })
+            .catch(error => {
+                console.error('Error killing position:', error);
+                showToast('Error', 'Failed to execute emergency exit', 'danger');
+            });
+        }
+
+        // Function to update the dashboard timestamp
+        function updateDashboardTimestamp(timestamp) {
+            const timeStr = timestamp || new Date().toLocaleString();
+            document.getElementById('dashboard-timestamp').textContent = `Last updated: ${timeStr}`;
+        }
+
+        // Function to check market status
+        function checkMarketStatus() {
+            const now = new Date();
+            const dayOfWeek = now.getDay();
+            const hours = now.getHours();
+
+            // Simple check: Open on weekdays between 9:30 AM and 4:00 PM
+            if (dayOfWeek >= 1 && dayOfWeek <= 5 && hours >= 9 && hours < 16) {
+                if (hours === 9 && now.getMinutes() < 30) {
+                    marketStatus.textContent = 'Market Opening Soon';
+                    marketStatus.classList.remove('status-active');
+                    marketStatus.classList.add('status-closed');
+                } else {
+                    marketStatus.textContent = 'Market Open';
+                    marketStatus.classList.add('status-active');
+                    marketStatus.classList.remove('status-closed');
+                }
+            } else {
+                marketStatus.textContent = 'Market Closed';
+                marketStatus.classList.remove('status-active');
+                marketStatus.classList.add('status-closed');
+            }
+        }
+
+        // Function to show a loading spinner
+        function showLoader(element) {
+            if (!element) return;
+
+            if (element.tagName === 'TBODY') {
+                element.innerHTML = `<tr><td colspan="6" class="text-center"><div class="loader"></div></td></tr>`;
+            } else {
+                const loader = element.querySelector('.loader');
+                if (loader) {
+                    loader.style.display = 'block';
+                } else {
+                    element.innerHTML = `<div class="loader"></div>`;
+                }
+            }
+        }
+
+        // Function to remove a loading spinner
+        function removeLoader(element) {
+            if (!element) return;
+        
+            const loaders = element.querySelectorAll('.loader');
+            loaders.forEach(loader => {
+                loader.parentNode.removeChild(loader);
+            });
+        }
+
+        // Function to show a toast notification
+        function showToast(title, message, type = 'info') {
+            const toastId = 'toast-' + Date.now();
+            const toastHTML = `
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="${toastId}" data-bs-autohide="true" data-bs-delay="3000">
+                    <div class="toast-header">
+                        <strong class="me-auto">${title}</strong>
+                        <small>${new Date().toLocaleTimeString()}</small>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <div class="text-${type === 'danger' ? 'danger' : type === 'success' ? 'success' : 'light'}">
+                            ${type === 'danger' ? '<i class="fas fa-exclamation-triangle me-2"></i>' : ''}
+                            ${type === 'success' ? '<i class="fas fa-check-circle me-2"></i>' : ''}
+                            ${type === 'info' ? '<i class="fas fa-info-circle me-2"></i>' : ''}
+                            ${message}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.querySelector('.toast-container').insertAdjacentHTML('beforeend', toastHTML);
+            const toastElement = document.getElementById(toastId);
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+            
+            // Remove the toast element after it's hidden
+            toastElement.addEventListener('hidden.bs.toast', function() {
+                toastElement.remove();
+            });
+        }
+
+        // Utility function to format a date
+        function formatDate(dateString) {
+            if (!dateString) return 'N/A';
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return 'Invalid Date';
+            return date.toLocaleDateString();
+        }
+
+        // Utility function to format currency
+        function formatCurrency(value) {
+            if (value === null || value === undefined || isNaN(value)) return 'N/A';
+            value = parseFloat(value);
+            return new Intl.NumberFormat('en-US', { 
+                style: 'currency', 
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2 
+            }).format(value);
+        }
+
+        // Utility function to format percentage
+        function formatPercentage(value) {
+            if (value === null || value === undefined || isNaN(value)) return 'N/A';
+            value = parseFloat(value);
+            return new Intl.NumberFormat('en-US', { 
+                style: 'percent', 
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1 
+            }).format(value);
+        }
+
+        // Handle errors gracefully
+        window.addEventListener('error', function(event) {
+            console.error('Caught error:', event.message);
+            showToast('Error', 'An error occurred in the application', 'danger');
+        });
+
+
+    </script>
+</body>
+</html>
+
